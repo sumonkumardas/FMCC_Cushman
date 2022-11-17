@@ -1,0 +1,81 @@
+﻿
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-user-secret"></i>
+                    <h3 class="box-title">Roles</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <form novalidate="novalidate" name="roleForm" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <input type="hidden" ng-model="role.Id" />
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Role Name
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input ng-model="role.name" type="text" class="form-control" placeholder="Role Name" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Description
+                                        </div>
+                                        <div class="col-sm-12 no-padding no-padding">
+                                            <input ng-model="role.description" type="text" placeholder="Description" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Expiration 
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input min="1" ng-model="role.expirationTime" ng-keyup="checkNum($event)" placeholder="Expiration Time" type="number" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="text-right">
+                                            <button ng-show="role.Id > 0" ng-disabled="roleForm.$invalid" ng-click="updateRole(roleForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Update</button>
+                                            <button ng-show="role.Id > 0" ng-disabled="roleForm.$invalid" ng-click="deleteRole(roleForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Delete</button>
+                                            <button ng-show="role.Id > 0" ng-disabled="roleForm.$invalid" ng-click="cancelRole(roleForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Cancel</button>
+                                            <button ng-show="role.Id == 0" ng-disabled="roleForm.$invalid" ng-click="setRole(roleForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:65px;">
+                                <table id="roles" class="table table-hover table-condensed table-bordered table-responsive"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,261 @@
+﻿<style>
+    svg > text:last-of-type {
+        display: block !important;
+    }
+
+    .box-solid:last-of-type {
+        margin-bottom: 0px;
+    }
+
+    .btn.btn-sm.btn-primary {
+        min-width: 100px;
+    }
+
+    .box-default:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .btn-primary:hover {
+        background-color: #6783A5 !important;
+    }
+
+    .create-widget {
+        width: 60px;
+    }
+
+    .form-group p {
+        margin-bottom: 0px !important;
+    }
+
+    .form-control {
+        padding-left: 6px;
+        height: 28px;
+    }
+
+    .option-form {
+        opacity: 0;
+        top: 80px;
+        z-index: -1;
+        visibility: hidden;
+        background: #fff;
+        display: block;
+        min-width: 100%;
+        padding: 25px 15px 15px;
+        transition: all 0.4s ease-in-out;
+        -moz-box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.1);
+        -webkit-box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.1);
+        box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.1);
+    }
+
+        .option-form.selected {
+            opacity: 1;
+            top: 37px;
+            visibility: visible;
+            z-index: 25;
+        }
+
+    .config-form {
+        opacity: 0;
+        top: 80px;
+        display: block;
+        z-index: -1;
+        visibility: hidden;
+        background: #fff;
+        min-width: 100%;
+        padding: 25px 15px 15px;
+        transition: all 0.4s ease-in-out;
+        -moz-box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.1);
+        -webkit-box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.1);
+        box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.1);
+    }
+
+        .config-form.selected {
+            opacity: 1;
+            top: 37px;
+            visibility: visible;
+            z-index: 25;
+        }
+
+    .my-highchart-container {
+        min-height: 480px;
+        width: 96%;
+        margin: 0px auto;
+        position: relative;
+    }
+
+    .my-highchart-table-data {
+        width: 100%;
+        padding: 15px 25px;
+    }
+
+    .pad-less {
+        padding: 0;
+    }
+
+    .content-head {
+        display: block;
+    }
+
+        .content-head > .breadcrumb {
+            float: right;
+            font-size: 12px;
+            background: none;
+            margin-bottom: 5px;
+            padding-top: 15px;
+            display: inline-block;
+        }
+
+            .content-head > .breadcrumb a {
+                color: #555;
+                display: inline-block;
+            }
+
+    .content-body {
+        padding-bottom: 15px;
+    }
+
+    .box .box-head {
+        margin: 0px;
+        padding: 0px;
+        width: calc(100% - 0px);
+        position: relative;
+        display: inline-block;
+        list-style: none inside;
+        border-bottom: 1px solid #eee;
+    }
+
+        .box .box-head li {
+            display: inline-block;
+        }
+
+            .box .box-head li.pull-left {
+                width: calc(100% - 200px);
+            }
+
+            .box .box-head li.pull-right {
+                width: 200px;
+            }
+
+        .box .box-head h3 {
+            margin: 0px;
+            padding: 8px 12px;
+            font-size: 18px;
+        }
+
+    .table-cell {
+        display: inline-block;
+    }
+
+        .table-cell:first-of-type {
+            width: calc(100% - 206px);
+        }
+
+        .table-cell:last-of-type {
+            width: 200px;
+        }
+
+    .box-tools.btn-toolbar.pull-right {
+        padding: 4px 10px;
+    }
+</style>
+<div class="container-fluid" style="padding-top:20px;">
+    <div class="content-body">
+        <div class="box box-default" ng-repeat="item in analytics.widget.collection">
+            <ul class="box-head clearfix">
+                <li class="table-cell">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i>
+                    </h3>
+                </li>
+                <li class="pull-right">
+                    <div class="box-tools btn-toolbar pull-right" role="toolbar">
+                        <button class="btn btn-group btn-box-tool btn-config" ng-click="analytics.widget.form.config.toggle($event)">
+                            <i class="fa fa-cogs"></i>
+                        </button>
+                        <form name="config" class="config-form dropdown-menu" novalidate="novalidate">
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Minimum Value</p>
+                                <input ng-model="analytics.widget.collection[$index].min" min="1" type="number" class="form-control" placeholder="Minimum value" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Maximum Value</p>
+                                <input ng-model="analytics.widget.collection[$index].max" min="1" type="number" class="form-control" placeholder="Maximum value" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <p><span style="position:relative;top:-1px;">Tabular View &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input ng-model="analytics.widget.collection[$index].table" type="radio" name="tableview" value="2" id="xmss"/> <label for="xmss" style="display:inline;font-weight:normal;position:relative;top:-2px;"> Complete Data &nbsp;&nbsp;&nbsp;</label>
+                                    <input ng-model="analytics.widget.collection[$index].table" type="radio" name="tableview" value="1" id="ymss"/> <label for="ymss" style="display:inline;font-weight:normal;position:relative;top:-2px;"> Analytics Data </label>
+                                </p>
+                            </div>
+
+                            <div class="form-group  col-md-12">
+                                <button ng-disabled="config.$invalid" type="submit" class="btn btn-sm btn-primary" ng-click="analytics.widget.form.config.submit($event,analytics.widget.collection[$index])" style="margin-right:6px;">Generate</button>
+                                <button type="submit" class="btn btn-sm btn-primary" ng-click="analytics.widget.form.config.hide($event)">Cancel</button>
+                            </div>
+                        </form>
+                        <button class="btn btn-group btn-box-tool btn-option" type="button" ng-click="analytics.widget.form.option.toggle($event)" style="margin-right:6px;">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <form name="option" class="option-form dropdown-menu" novalidate="novalidate">
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Title</p>
+                                <input ng-model="analytics.widget.collection[$index].title" type="text" class="form-control title" placeholder="Title" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Block</p>
+                                <select ng-model="analytics.widget.collection[$index].block" class="form-control block" data-placeholder="Select a block" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Object</p>
+                                <select ng-model="analytics.widget.collection[$index].object" class="form-control object" data-placeholder="Select an object" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Data Field</p>
+                                <select ng-model="analytics.widget.collection[$index].field" class="form-control data-field" data-placeholder="Select a data field" required>
+                                    <option></option>
+                                </select>
+                                <p class="error-text"></p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Date Range</p>
+                                <input ng-model="analytics.widget.collection[$index].range" type="text" class="form-control date-range" placeholder="Enter a date range" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="label-text">Display As</p>
+                                <select ng-model="analytics.widget.collection[$index].type" class="form-control display-type" data-placeholder="Select a display type" required>
+                                    <option></option>
+                                    <option value="bar"> Bar </option>
+                                    <option value="area"> Area </option>
+                                    <option value="line"> Line </option>
+                                    <option value="column"> Column </option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button ng-disabled="option.$invalid" type="submit" class="btn btn-sm btn-primary" ng-click="analytics.widget.form.option.submit($event,analytics.widget.collection[$index])" style="margin-right:6px;">Generate</button>
+                                <button type="submit" class="btn btn-sm btn-primary" ng-click="analytics.widget.form.option.hide($event)">Cancel</button>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-group btn-box-tool" data-widget="collapse" ng-click="analytics.widget.form.hideAll($event)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <!--<button type="button" class="btn btn-group btn-box-tool" data-widget="remove">
+                            <i class="fa fa-times"></i>
+                        </button>-->
+                    </div>
+                </li>
+            </ul>
+            <div class="box-body">
+                <div class="my-highchart-container">
+                    <div class="chart-elem"></div>
+                    <div class="mask"></div>
+                </div>
+                <div class="my-highchart-table-data table-responsive" ng-show="analytics.widget.collection[$index].showTable"></div>
+            </div>
+        </div>
+    </div>
+</div>

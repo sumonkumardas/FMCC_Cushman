@@ -1,0 +1,209 @@
+﻿
+/*report module style*/
+@media screen and (min-width: 768px) {
+
+    #myModal4 .modal-dialog {
+        width: 75%;
+    }
+}
+
+.nopadding {
+    padding: 7px !important;
+    margin: 0 !important;
+}
+
+.dashboard-box {
+    background-color: #ECF0F5;
+    width: 100%;
+    height: 90px;
+    padding: 25px 15px 15px 15px;
+    text-align: center;
+    border: 1px solid #d1d2d3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+    .dashboard-box p {
+        margin: 0;
+    }
+
+#navDate {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.info-box-custom {
+    background-color: white;
+    border: 1px solid #cbced3;
+    display: table;
+}
+
+.dashboardBoxHeader {
+    height: 36px;
+    line-height: 36px;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.paddingAll {
+    padding: 25px;
+}
+
+.paddingLeftRightBottom {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
+
+.dashboardBoxGraphSection {
+    height: 250px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.dashboardGraph {
+    text-align: center;
+    height: 100%;
+    display: table;
+    overflow: hidden;
+    height: inherit !important;
+    width: 48% !important;
+}
+
+.dashboardGraphStyle {
+    height: inherit !important;
+    width: 100px !important;
+    overflow: hidden;
+}
+
+.dashboardBoxRightBelow {
+    color: black;
+    height: inherit;
+    width: 48% !important;
+    height: inherit !important;
+    display: table;
+}
+
+
+.boxHeadingStyle {
+    padding-left: 35px;
+    padding-top: 6px;
+    height: 36px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.displayTableWithHeight {
+    display: table;
+    height: 100%;
+}
+
+.summaryValueFontSize {
+    font-size: 25px;
+}
+
+.summaryUnitFontSize {
+    font-size: 12px;
+}
+
+.boxSummaryValueStyle {
+    text-align: center;
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+.boxSummaryValueStyleBlockView {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.verticalMiddleAlign {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.verticalBottomAlign {
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.dashboardPaddingTopN {
+    padding-top: 20px;
+}
+
+.dashboadTopSummary {
+    height: 40%; 
+    padding-left: 10px;
+}
+
+.dashboardPercentage {
+    height: 30%; 
+    padding-top: 10px; 
+    padding-left: 10px;
+}
+
+.dashboardLastNDay {
+    height: 30%; 
+    padding-top: 0px;
+}
+
+.dashboardLastNStyle {
+    width: 100%; 
+    height: 55px;
+}
+
+.chart-box {
+    height: 300px;
+    width: 100%;
+    /*border: 1px solid #cbced3;*/
+}
+
+.highchartZoom {
+    /*zoom: reset !important;*/
+    /*zoom: 1.29;*/
+    /*zoom: 1.4;*/
+}
+
+/*.table-box{
+	width: 100%;
+}
+
+.table th{
+	background-color:#5AA2AE;
+	color:#FFF;
+}
+
+.table, th, tr {
+   border: 2px solid #5AA2AE;
+}
+
+.table, td {
+   border-bottom: 2px solid #5AA2AE;
+}*/
+
+.report-select {
+    float: right;
+    margin: 0 5px 0 5px;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    border: 1px solid #d2d6de;
+}
+
+.dashboardPercentagePadding {
+    padding-left: 30px;
+}
+
+.zoom80 {
+    zoom: 0.8;
+    -ms-zoom: 0.8;
+    -webkit-zoom: 0.8;
+    -moz-transform: scale(0.8,0.8);
+    -moz-transform-origin: center top;
+}

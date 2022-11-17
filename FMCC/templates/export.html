@@ -1,0 +1,109 @@
+﻿<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cogs"></i>
+                    <h3 class="box-title">Export</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <form novalidate="novalidate" name="userRoleForm" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Block
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="exportBlock" class="block form-control input-sm" data-placeholder="Please select a Block">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Object
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="blockObject" class="object form-control input-sm" data-placeholder="Please select a Object">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Data Field
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="exportDataField" class="dataField form-control input-sm" data-placeholder="Please select a Data Field">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="">
+                                            From Date
+                                        </div>
+                                        <div class="form-group">
+                                            <input type='text' class="form-control" placeholder="From Date" id='fromdate' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group clearfix">
+                                    <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                        To Date
+                                    </div>
+                                    <div class="col-sm-12 no-padding">
+                                        <input type='text' class="form-control" placeholder="To Date" id='todate' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="text-right">
+                                            <button ng-click="submitExport()" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Export</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                   
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

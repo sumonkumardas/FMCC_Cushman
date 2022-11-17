@@ -1,0 +1,2507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FMCCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Alarm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Alarm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="SiteName" Type="varchar" MaxLength="50" />
+          <Property Name="Itqf" Type="varchar" MaxLength="200" />
+          <Property Name="ItemCategory" Type="varchar" MaxLength="50" />
+          <Property Name="AcknowledgeRequired" Type="varchar" MaxLength="50" />
+          <Property Name="PreviousStatus" Type="varchar" MaxLength="50" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="IsProcess" Type="bit" />
+          <Property Name="FMCCStatus" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlarmStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlarmStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlarmSupress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlarmSupress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Itqf" Type="varchar" MaxLength="500" />
+          <Property Name="StartDateTime" Type="datetime" />
+          <Property Name="EndDateTime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Alert' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Alert">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AlertRuleId" Type="int" Nullable="false" />
+          <Property Name="BuildingFkId" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjetFkId" Type="int" Nullable="false" />
+          <Property Name="ObjetId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+          <Property Name="DataFieldId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromDateTime" Type="datetime" Nullable="false" />
+          <Property Name="ToDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Severity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlertValue" Type="float" Nullable="false" />
+          <Property Name="ReferenceValue" Type="float" Nullable="false" />
+          <Property Name="LastRecord" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlertCondition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FMCCStatus" Type="int" Nullable="false" />
+          <Property Name="IsSMS" Type="bit" Nullable="false" />
+          <Property Name="IsEmail" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Type" Type="int" />
+          <Property Name="AnyTemperatureCondition" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlertAverageSetup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlertAverageSetup">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            
+            
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Minute" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="BuildingFkId" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlertData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlertData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AlertRuleSetupId" Type="int" />
+          <Property Name="BuildingFkId" Type="int" />
+          <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectFkId" Type="int" />
+          <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldFkId" Type="int" />
+          <Property Name="DataFieldId" Type="varchar" MaxLength="50" />
+          <Property Name="ReadingValue" Type="float" />
+          <Property Name="ReferencValue" Type="float" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="Severity" Type="int" />
+          <Property Name="Condition" Type="int" />
+          <Property Name="IsEmail" Type="bit" />
+          <Property Name="IsSMS" Type="bit" />
+          <Property Name="IsProcess" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlertNotifyUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlertNotifyUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AlertRuleSetupId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlertRuleSetup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlertRuleSetup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AlertText" Type="varchar" MaxLength="200" />
+          <Property Name="Remarks" Type="varchar" MaxLength="300" />
+          <Property Name="BuildingFkId" Type="int" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ObjectFkId" Type="int" />
+          <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataFieldFkId" Type="int" />
+          <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Condition" Type="int" />
+          <Property Name="ThresholdValue" Type="float" />
+          <Property Name="Severity" Type="int" />
+          <Property Name="ReferenceValue" Type="float" />
+          <Property Name="FixedRuleByFMCC" Type="bit" />
+          <Property Name="IsEmail" Type="bit" />
+          <Property Name="IsSMS" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="WeekDays" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="SelectedDataIds" Type="varchar" MaxLength="500" />
+          <Property Name="Percentage" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.AlertSuppress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AlertSuppress">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            
+            
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="From Date" Type="datetime" Nullable="false" />
+          <Property Name="to Date" Type="datetime" Nullable="false" />
+          <Property Name="BuildingFkId" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="GFA" Type="float" />
+          <Property Name="BedNo" Type="int" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="250" />
+          <Property Name="EUI" Type="float" />
+          <Property Name="ContactPerson" Type="nvarchar(max)" />
+          <Property Name="GreenMarkRating" Type="int" />
+          <Property Name="GreenMarkExpiry" Type="nvarchar" MaxLength="50" />
+          <Property Name="Award" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="AirconditionedArea" Type="float" />
+          <Property Name="Established" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkingPeriodStart" Type="datetime" />
+          <Property Name="WorkingPeriodEnd" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="ImageLocation" Type="nvarchar(max)" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Lattitude" Type="float" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="WorkingPeriod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tariff" Type="float" />
+          <Property Name="NotificationProcess" Type="int" />
+          <Property Name="ChillerPlantBitmap" Type="varchar" MaxLength="50" />
+          <Property Name="ChwFlowDesigned" Type="float" />
+          <Property Name="CwFlowDesigned" Type="float" />
+          <Property Name="BaselineType" Type="int" />
+          <Property Name="OperatingFromWeekDay" Type="varchar" MaxLength="50" />
+          <Property Name="OperatingToWeekDay" Type="varchar" MaxLength="50" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="SiteId" Type="int" />
+          <Property Name="ContractCapacity" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.BuildingAlarmForward' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BuildingAlarmForward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingFkId" Type="int" />
+          <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="StatusName" Type="varchar" MaxLength="50" />
+          <Property Name="StartDateTime" Type="datetime" />
+          <Property Name="EndDateTime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.BuildingObjectData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BuildingObjectData">
+          <Key>
+            <PropertyRef Name="BuildingFkId" />
+            <PropertyRef Name="ObjectFkId" />
+            <PropertyRef Name="DataFieldFkId" />
+            <PropertyRef Name="BuildingId" />
+            <PropertyRef Name="ObjectId" />
+            <PropertyRef Name="DataFieldId" />
+          </Key>
+          <Property Name="BuildingFkId" Type="int" Nullable="false" />
+          <Property Name="ObjectFkId" Type="int" Nullable="false" />
+          <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RawDataFieldNumber" Type="int" />
+          <Property Name="ComputedDataFieldNumber" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldUnit" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.BuildingType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BuildingType">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.BuildingUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BuildingUser">
+          <Key>
+            <PropertyRef Name="BuildingFkId" />
+            <PropertyRef Name="UserFkId" />
+            <PropertyRef Name="BuildingId" />
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="BuildingFkId" Type="int" Nullable="false" />
+          <Property Name="UserFkId" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.CO2EmissionFactor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CO2EmissionFactor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordDateTime" Type="datetime" />
+          <Property Name="Year" Type="int" />
+          <Property Name="AverageOperatingMargin" Type="decimal" Precision="16" Scale="4" />
+          <Property Name="BuildMargin" Type="decimal" Precision="16" Scale="4" />
+          <Property Name="CombinedMargin" Type="nchar" MaxLength="10" />
+          <Property Name="TimeStamp" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.DashboardMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DashboardMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MenuId" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="UserFkId" Type="int" />
+          <Property Name="UrlPath" Type="varchar" MaxLength="50" />
+          <Property Name="MenuOrder" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.DashboardMenuPreset' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DashboardMenuPreset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="UserFkId" Type="int" />
+          <Property Name="MenuId" Type="varchar" MaxLength="50" />
+          <Property Name="MenuFkId" Type="int" />
+          <Property Name="BlockId" Type="varchar" MaxLength="50" />
+          <Property Name="BlockFkId" Type="int" />
+          <Property Name="BlockText" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectFkId" Type="int" />
+          <Property Name="ObjectText" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldId" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldFkId" Type="int" />
+          <Property Name="DataFieldText" Type="varchar" MaxLength="50" />
+          <Property Name="DateFlag" Type="varchar" MaxLength="50" />
+          <Property Name="DateFlagText" Type="varchar" MaxLength="50" />
+          <Property Name="ChartType" Type="varchar" MaxLength="50" />
+          <Property Name="ChartTypeText" Type="varchar" MaxLength="50" />
+          <Property Name="Order" Type="int" />
+          <Property Name="DisplayProfile" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectToCompareId" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectToCompareText" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldToCompareId" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldToCompareText" Type="varchar" MaxLength="50" />
+          <Property Name="ChartTitle" Type="varchar" MaxLength="250" />
+          <Property Name="ThresholdRangeFrom" Type="float" />
+          <Property Name="ValveOutput" Type="varchar" MaxLength="50" />
+          <Property Name="TemperatureSetPoint" Type="float" />
+          <Property Name="ThresholdRangeTo" Type="float" />
+          <Property Name="RATemperature" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.DataField' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataField">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unit" Type="nchar" MaxLength="10" />
+          <Property Name="IsRaw" Type="bit" />
+          <Property Name="IsCompute" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.DataFieldUnit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataFieldUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Expression' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Expression">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            
+            
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Expr" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.ItqfReplacement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ItqfReplacement">
+          <Key>
+            
+            
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Itqf" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ReplacementName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Menu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MenuItem" Type="varchar" MaxLength="250" />
+          <Property Name="Url" Type="text" />
+          <Property Name="Parent" Type="int" />
+          <Property Name="ModuleId" Type="int" />
+          <Property Name="PermissionRole" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.MenuAuthentication' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MenuAuthentication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleId" Type="int" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="IsAuthorized" Type="bit" />
+          <Property Name="PermissionRole" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Module' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Object' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Object">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsRaw" Type="bit" />
+          <Property Name="IsCompute" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.ObjectOnOffMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ObjectOnOffMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectFkId" Type="int" />
+          <Property Name="ObjectName" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldFkId" Type="int" />
+          <Property Name="DataFieldId" Type="varchar" MaxLength="50" />
+          <Property Name="DataFieldName" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="OnValue" Type="int" />
+          <Property Name="OffValue" Type="int" />
+          <Property Name="Thresold" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.ObjectUnitMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ObjectUnitMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectDataField" Type="varchar" MaxLength="50" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="UnitName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Permission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.PowerMonthlyTariff' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PowerMonthlyTariff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonthDateTime" Type="datetime" />
+          <Property Name="Tariff" Type="decimal" Precision="16" Scale="4" />
+          <Property Name="TimeStamp" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Reading' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Reading">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingFkId" Type="int" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ObjectFkId" Type="int" />
+          <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataFieldFkId" Type="int" />
+          <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Value" Type="float" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="IsAlertProcess" Type="bit" />
+          <Property Name="UtcTimestamp" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="ExpirationTime" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.RolePermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="RoleFkId" />
+            <PropertyRef Name="PermissionFkId" />
+            <PropertyRef Name="Rolename" />
+            <PropertyRef Name="Permissionname" />
+          </Key>
+          <Property Name="RoleFkId" Type="int" Nullable="false" />
+          <Property Name="PermissionFkId" Type="int" Nullable="false" />
+          <Property Name="Rolename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Permissionname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.Site' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="ImageLocation" Type="varchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.TempReading' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TempReading">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingFkId" Type="int" Nullable="false" />
+          <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjectFkId" Type="int" Nullable="false" />
+          <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjectNo" Type="int" Nullable="false" />
+          <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+          <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="ExpressionColumn" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsProcess" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Computed" Type="bit" />
+          <Property Name="UtcTimestamp" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="FullName" Type="varchar" MaxLength="200" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="100" />
+          <Property Name="IsLoggedIn" Type="bit" />
+          <Property Name="IsAdministrator" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.UserLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+            
+          </Key>
+          <Property Name="LogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="SignInOutTime" Type="datetime" />
+          <Property Name="SignType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMCC_cushman.dbo.UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserRole">
+          <Key>
+            
+            
+            
+            
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rolename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="FMCCModelStoreContainer">
+          <EntitySet Name="Building" EntityType="Self.Building" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alarm" EntityType="Self.Alarm" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Alarm].[Id] AS [Id], 
+    [Alarm].[Status] AS [Status], 
+    [Alarm].[SiteName] AS [SiteName], 
+    [Alarm].[Itqf] AS [Itqf], 
+    [Alarm].[ItemCategory] AS [ItemCategory], 
+    [Alarm].[AcknowledgeRequired] AS [AcknowledgeRequired], 
+    [Alarm].[PreviousStatus] AS [PreviousStatus], 
+    [Alarm].[TimeStamp] AS [TimeStamp], 
+    [Alarm].[IsProcess] AS [IsProcess], 
+    [Alarm].[FMCCStatus] AS [FMCCStatus]
+    FROM [dbo].[Alarm] AS [Alarm]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlarmStatus" EntityType="Self.AlarmStatus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlarmStatus].[Id] AS [Id], 
+    [AlarmStatus].[Name] AS [Name]
+    FROM [dbo].[AlarmStatus] AS [AlarmStatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlarmSupress" EntityType="Self.AlarmSupress" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlarmSupress].[Id] AS [Id], 
+    [AlarmSupress].[Itqf] AS [Itqf], 
+    [AlarmSupress].[StartDateTime] AS [StartDateTime], 
+    [AlarmSupress].[EndDateTime] AS [EndDateTime]
+    FROM [dbo].[AlarmSupress] AS [AlarmSupress]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Alert" EntityType="Self.Alert" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Alert].[Id] AS [Id], 
+    [Alert].[AlertRuleId] AS [AlertRuleId], 
+    [Alert].[BuildingFkId] AS [BuildingFkId], 
+    [Alert].[BuildingId] AS [BuildingId], 
+    [Alert].[ObjetFkId] AS [ObjetFkId], 
+    [Alert].[ObjetId] AS [ObjetId], 
+    [Alert].[DataFieldFkId] AS [DataFieldFkId], 
+    [Alert].[DataFieldId] AS [DataFieldId], 
+    [Alert].[FromDateTime] AS [FromDateTime], 
+    [Alert].[ToDateTime] AS [ToDateTime], 
+    [Alert].[Severity] AS [Severity], 
+    [Alert].[AlertValue] AS [AlertValue], 
+    [Alert].[ReferenceValue] AS [ReferenceValue], 
+    [Alert].[LastRecord] AS [LastRecord], 
+    [Alert].[AlertCondition] AS [AlertCondition], 
+    [Alert].[FMCCStatus] AS [FMCCStatus], 
+    [Alert].[IsSMS] AS [IsSMS], 
+    [Alert].[IsEmail] AS [IsEmail], 
+    [Alert].[IsActive] AS [IsActive], 
+    [Alert].[CreatedBy] AS [CreatedBy], 
+    [Alert].[CreatedDate] AS [CreatedDate], 
+    [Alert].[UpdatedBy] AS [UpdatedBy], 
+    [Alert].[UpdatedDate] AS [UpdatedDate], 
+    [Alert].[Type] AS [Type], 
+    [Alert].[AnyTemperatureCondition] AS [AnyTemperatureCondition]
+    FROM [dbo].[Alert] AS [Alert]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlertAverageSetup" EntityType="Self.AlertAverageSetup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlertAverageSetup].[Id] AS [Id], 
+    [AlertAverageSetup].[Minute] AS [Minute], 
+    [AlertAverageSetup].[DateTime] AS [DateTime], 
+    [AlertAverageSetup].[BuildingFkId] AS [BuildingFkId], 
+    [AlertAverageSetup].[BuildingId] AS [BuildingId]
+    FROM [dbo].[AlertAverageSetup] AS [AlertAverageSetup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlertData" EntityType="Self.AlertData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlertData].[Id] AS [Id], 
+    [AlertData].[AlertRuleSetupId] AS [AlertRuleSetupId], 
+    [AlertData].[BuildingFkId] AS [BuildingFkId], 
+    [AlertData].[BuildingId] AS [BuildingId], 
+    [AlertData].[ObjectFkId] AS [ObjectFkId], 
+    [AlertData].[ObjectId] AS [ObjectId], 
+    [AlertData].[DataFieldFkId] AS [DataFieldFkId], 
+    [AlertData].[DataFieldId] AS [DataFieldId], 
+    [AlertData].[ReadingValue] AS [ReadingValue], 
+    [AlertData].[ReferencValue] AS [ReferencValue], 
+    [AlertData].[Timestamp] AS [Timestamp], 
+    [AlertData].[Severity] AS [Severity], 
+    [AlertData].[Condition] AS [Condition], 
+    [AlertData].[IsEmail] AS [IsEmail], 
+    [AlertData].[IsSMS] AS [IsSMS], 
+    [AlertData].[IsProcess] AS [IsProcess], 
+    [AlertData].[IsActive] AS [IsActive], 
+    [AlertData].[CreatedBy] AS [CreatedBy], 
+    [AlertData].[CreatedDate] AS [CreatedDate], 
+    [AlertData].[UpdatedBy] AS [UpdatedBy], 
+    [AlertData].[UpdatedDate] AS [UpdatedDate], 
+    [AlertData].[IPAddress] AS [IPAddress]
+    FROM [dbo].[AlertData] AS [AlertData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlertNotifyUser" EntityType="Self.AlertNotifyUser" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlertNotifyUser].[Id] AS [Id], 
+    [AlertNotifyUser].[AlertRuleSetupId] AS [AlertRuleSetupId], 
+    [AlertNotifyUser].[UserId] AS [UserId]
+    FROM [dbo].[AlertNotifyUser] AS [AlertNotifyUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlertRuleSetup" EntityType="Self.AlertRuleSetup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlertRuleSetup].[Id] AS [Id], 
+    [AlertRuleSetup].[AlertText] AS [AlertText], 
+    [AlertRuleSetup].[Remarks] AS [Remarks], 
+    [AlertRuleSetup].[BuildingFkId] AS [BuildingFkId], 
+    [AlertRuleSetup].[BuildingId] AS [BuildingId], 
+    [AlertRuleSetup].[ObjectFkId] AS [ObjectFkId], 
+    [AlertRuleSetup].[ObjectId] AS [ObjectId], 
+    [AlertRuleSetup].[DataFieldFkId] AS [DataFieldFkId], 
+    [AlertRuleSetup].[DataFieldId] AS [DataFieldId], 
+    [AlertRuleSetup].[Condition] AS [Condition], 
+    [AlertRuleSetup].[ThresholdValue] AS [ThresholdValue], 
+    [AlertRuleSetup].[Severity] AS [Severity], 
+    [AlertRuleSetup].[ReferenceValue] AS [ReferenceValue], 
+    [AlertRuleSetup].[FixedRuleByFMCC] AS [FixedRuleByFMCC], 
+    [AlertRuleSetup].[IsEmail] AS [IsEmail], 
+    [AlertRuleSetup].[IsSMS] AS [IsSMS], 
+    [AlertRuleSetup].[IsActive] AS [IsActive], 
+    [AlertRuleSetup].[CreatedBy] AS [CreatedBy], 
+    [AlertRuleSetup].[CreatedDate] AS [CreatedDate], 
+    [AlertRuleSetup].[UpdatedBy] AS [UpdatedBy], 
+    [AlertRuleSetup].[UpdatedDate] AS [UpdatedDate], 
+    [AlertRuleSetup].[IPAddress] AS [IPAddress], 
+    [AlertRuleSetup].[StartDate] AS [StartDate], 
+    [AlertRuleSetup].[EndDate] AS [EndDate], 
+    [AlertRuleSetup].[WeekDays] AS [WeekDays], 
+    [AlertRuleSetup].[Type] AS [Type], 
+    [AlertRuleSetup].[SelectedDataIds] AS [SelectedDataIds], 
+    [AlertRuleSetup].[Percentage] AS [Percentage]
+    FROM [dbo].[AlertRuleSetup] AS [AlertRuleSetup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AlertSuppress" EntityType="Self.AlertSuppress" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AlertSuppress].[Id] AS [Id], 
+    [AlertSuppress].[From Date] AS [From Date], 
+    [AlertSuppress].[to Date] AS [to Date], 
+    [AlertSuppress].[BuildingFkId] AS [BuildingFkId], 
+    [AlertSuppress].[BuildingId] AS [BuildingId]
+    FROM [dbo].[AlertSuppress] AS [AlertSuppress]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BuildingAlarmForward" EntityType="Self.BuildingAlarmForward" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BuildingAlarmForward].[Id] AS [Id], 
+    [BuildingAlarmForward].[BuildingFkId] AS [BuildingFkId], 
+    [BuildingAlarmForward].[BuildingName] AS [BuildingName], 
+    [BuildingAlarmForward].[StatusId] AS [StatusId], 
+    [BuildingAlarmForward].[StatusName] AS [StatusName], 
+    [BuildingAlarmForward].[StartDateTime] AS [StartDateTime], 
+    [BuildingAlarmForward].[EndDateTime] AS [EndDateTime]
+    FROM [dbo].[BuildingAlarmForward] AS [BuildingAlarmForward]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BuildingObjectData" EntityType="Self.BuildingObjectData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BuildingObjectData].[BuildingFkId] AS [BuildingFkId], 
+    [BuildingObjectData].[ObjectFkId] AS [ObjectFkId], 
+    [BuildingObjectData].[DataFieldFkId] AS [DataFieldFkId], 
+    [BuildingObjectData].[BuildingId] AS [BuildingId], 
+    [BuildingObjectData].[ObjectId] AS [ObjectId], 
+    [BuildingObjectData].[DataFieldId] AS [DataFieldId], 
+    [BuildingObjectData].[RawDataFieldNumber] AS [RawDataFieldNumber], 
+    [BuildingObjectData].[ComputedDataFieldNumber] AS [ComputedDataFieldNumber], 
+    [BuildingObjectData].[IsActive] AS [IsActive], 
+    [BuildingObjectData].[CreatedBy] AS [CreatedBy], 
+    [BuildingObjectData].[CreatedDate] AS [CreatedDate], 
+    [BuildingObjectData].[UpdatedBy] AS [UpdatedBy], 
+    [BuildingObjectData].[UpdatedDate] AS [UpdatedDate], 
+    [BuildingObjectData].[IPAddress] AS [IPAddress], 
+    [BuildingObjectData].[DataFieldUnit] AS [DataFieldUnit]
+    FROM [dbo].[BuildingObjectData] AS [BuildingObjectData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BuildingType" EntityType="Self.BuildingType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BuildingType].[Id] AS [Id], 
+    [BuildingType].[Name] AS [Name], 
+    [BuildingType].[Active] AS [Active]
+    FROM [dbo].[BuildingType] AS [BuildingType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BuildingUser" EntityType="Self.BuildingUser" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BuildingUser].[BuildingFkId] AS [BuildingFkId], 
+    [BuildingUser].[UserFkId] AS [UserFkId], 
+    [BuildingUser].[BuildingId] AS [BuildingId], 
+    [BuildingUser].[Username] AS [Username], 
+    [BuildingUser].[IsActive] AS [IsActive], 
+    [BuildingUser].[CreatedBy] AS [CreatedBy], 
+    [BuildingUser].[CreatedDate] AS [CreatedDate], 
+    [BuildingUser].[UpdatedBy] AS [UpdatedBy], 
+    [BuildingUser].[UpdatedDate] AS [UpdatedDate], 
+    [BuildingUser].[IPAddress] AS [IPAddress]
+    FROM [dbo].[BuildingUser] AS [BuildingUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CO2EmissionFactor" EntityType="Self.CO2EmissionFactor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CO2EmissionFactor].[ID] AS [ID], 
+    [CO2EmissionFactor].[RecordDateTime] AS [RecordDateTime], 
+    [CO2EmissionFactor].[Year] AS [Year], 
+    [CO2EmissionFactor].[AverageOperatingMargin] AS [AverageOperatingMargin], 
+    [CO2EmissionFactor].[BuildMargin] AS [BuildMargin], 
+    [CO2EmissionFactor].[CombinedMargin] AS [CombinedMargin], 
+    [CO2EmissionFactor].[TimeStamp] AS [TimeStamp]
+    FROM [dbo].[CO2EmissionFactor] AS [CO2EmissionFactor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DashboardMenu" EntityType="Self.DashboardMenu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DashboardMenu].[Id] AS [Id], 
+    [DashboardMenu].[MenuId] AS [MenuId], 
+    [DashboardMenu].[Name] AS [Name], 
+    [DashboardMenu].[UserId] AS [UserId], 
+    [DashboardMenu].[UserFkId] AS [UserFkId], 
+    [DashboardMenu].[UrlPath] AS [UrlPath], 
+    [DashboardMenu].[MenuOrder] AS [MenuOrder]
+    FROM [dbo].[DashboardMenu] AS [DashboardMenu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DashboardMenuPreset" EntityType="Self.DashboardMenuPreset" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DashboardMenuPreset].[Id] AS [Id], 
+    [DashboardMenuPreset].[UserId] AS [UserId], 
+    [DashboardMenuPreset].[UserFkId] AS [UserFkId], 
+    [DashboardMenuPreset].[MenuId] AS [MenuId], 
+    [DashboardMenuPreset].[MenuFkId] AS [MenuFkId], 
+    [DashboardMenuPreset].[BlockId] AS [BlockId], 
+    [DashboardMenuPreset].[BlockFkId] AS [BlockFkId], 
+    [DashboardMenuPreset].[BlockText] AS [BlockText], 
+    [DashboardMenuPreset].[ObjectId] AS [ObjectId], 
+    [DashboardMenuPreset].[ObjectFkId] AS [ObjectFkId], 
+    [DashboardMenuPreset].[ObjectText] AS [ObjectText], 
+    [DashboardMenuPreset].[DataFieldId] AS [DataFieldId], 
+    [DashboardMenuPreset].[DataFieldFkId] AS [DataFieldFkId], 
+    [DashboardMenuPreset].[DataFieldText] AS [DataFieldText], 
+    [DashboardMenuPreset].[DateFlag] AS [DateFlag], 
+    [DashboardMenuPreset].[DateFlagText] AS [DateFlagText], 
+    [DashboardMenuPreset].[ChartType] AS [ChartType], 
+    [DashboardMenuPreset].[ChartTypeText] AS [ChartTypeText], 
+    [DashboardMenuPreset].[Order] AS [Order], 
+    [DashboardMenuPreset].[DisplayProfile] AS [DisplayProfile], 
+    [DashboardMenuPreset].[ObjectToCompareId] AS [ObjectToCompareId], 
+    [DashboardMenuPreset].[ObjectToCompareText] AS [ObjectToCompareText], 
+    [DashboardMenuPreset].[DataFieldToCompareId] AS [DataFieldToCompareId], 
+    [DashboardMenuPreset].[DataFieldToCompareText] AS [DataFieldToCompareText], 
+    [DashboardMenuPreset].[ChartTitle] AS [ChartTitle], 
+    [DashboardMenuPreset].[ThresholdRangeFrom] AS [ThresholdRangeFrom], 
+    [DashboardMenuPreset].[ValveOutput] AS [ValveOutput], 
+    [DashboardMenuPreset].[TemperatureSetPoint] AS [TemperatureSetPoint], 
+    [DashboardMenuPreset].[ThresholdRangeTo] AS [ThresholdRangeTo], 
+    [DashboardMenuPreset].[RATemperature] AS [RATemperature]
+    FROM [dbo].[DashboardMenuPreset] AS [DashboardMenuPreset]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataField" EntityType="Self.DataField" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataField].[Id] AS [Id], 
+    [DataField].[DataFieldId] AS [DataFieldId], 
+    [DataField].[Name] AS [Name], 
+    [DataField].[Type] AS [Type], 
+    [DataField].[Unit] AS [Unit], 
+    [DataField].[IsRaw] AS [IsRaw], 
+    [DataField].[IsCompute] AS [IsCompute], 
+    [DataField].[IsActive] AS [IsActive], 
+    [DataField].[CreatedBy] AS [CreatedBy], 
+    [DataField].[CreatedDate] AS [CreatedDate], 
+    [DataField].[UpdatedBy] AS [UpdatedBy], 
+    [DataField].[UpdatedDate] AS [UpdatedDate], 
+    [DataField].[IPAddress] AS [IPAddress]
+    FROM [dbo].[DataField] AS [DataField]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataFieldUnit" EntityType="Self.DataFieldUnit" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataFieldUnit].[Id] AS [Id], 
+    [DataFieldUnit].[Name] AS [Name]
+    FROM [dbo].[DataFieldUnit] AS [DataFieldUnit]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Expression" EntityType="Self.Expression" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Expression].[Id] AS [Id], 
+    [Expression].[BuildingId] AS [BuildingId], 
+    [Expression].[ObjectId] AS [ObjectId], 
+    [Expression].[DataFieldId] AS [DataFieldId], 
+    [Expression].[Expr] AS [Expr]
+    FROM [dbo].[Expression] AS [Expression]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ItqfReplacement" EntityType="Self.ItqfReplacement" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ItqfReplacement].[Itqf] AS [Itqf], 
+    [ItqfReplacement].[ReplacementName] AS [ReplacementName], 
+    [ItqfReplacement].[Id] AS [Id]
+    FROM [dbo].[ItqfReplacement] AS [ItqfReplacement]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Menu" EntityType="Self.Menu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Menu].[Id] AS [Id], 
+    [Menu].[MenuItem] AS [MenuItem], 
+    [Menu].[Url] AS [Url], 
+    [Menu].[Parent] AS [Parent], 
+    [Menu].[ModuleId] AS [ModuleId], 
+    [Menu].[PermissionRole] AS [PermissionRole]
+    FROM [dbo].[Menu] AS [Menu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MenuAuthentication" EntityType="Self.MenuAuthentication" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MenuAuthentication].[Id] AS [Id], 
+    [MenuAuthentication].[ModuleId] AS [ModuleId], 
+    [MenuAuthentication].[RoleId] AS [RoleId], 
+    [MenuAuthentication].[MenuId] AS [MenuId], 
+    [MenuAuthentication].[IsAuthorized] AS [IsAuthorized], 
+    [MenuAuthentication].[PermissionRole] AS [PermissionRole]
+    FROM [dbo].[MenuAuthentication] AS [MenuAuthentication]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Module" EntityType="Self.Module" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Module].[Id] AS [Id], 
+    [Module].[Name] AS [Name]
+    FROM [dbo].[Module] AS [Module]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Object" EntityType="Self.Object" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Object].[Id] AS [Id], 
+    [Object].[ObjectId] AS [ObjectId], 
+    [Object].[Name] AS [Name], 
+    [Object].[Identifier] AS [Identifier], 
+    [Object].[IsRaw] AS [IsRaw], 
+    [Object].[IsCompute] AS [IsCompute], 
+    [Object].[IsActive] AS [IsActive], 
+    [Object].[CreatedBy] AS [CreatedBy], 
+    [Object].[CreatedDate] AS [CreatedDate], 
+    [Object].[UpdatedBy] AS [UpdatedBy], 
+    [Object].[UpdatedDate] AS [UpdatedDate], 
+    [Object].[IPAddress] AS [IPAddress]
+    FROM [dbo].[Object] AS [Object]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ObjectOnOffMapping" EntityType="Self.ObjectOnOffMapping" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ObjectOnOffMapping].[Id] AS [Id], 
+    [ObjectOnOffMapping].[ObjectId] AS [ObjectId], 
+    [ObjectOnOffMapping].[ObjectFkId] AS [ObjectFkId], 
+    [ObjectOnOffMapping].[ObjectName] AS [ObjectName], 
+    [ObjectOnOffMapping].[DataFieldFkId] AS [DataFieldFkId], 
+    [ObjectOnOffMapping].[DataFieldId] AS [DataFieldId], 
+    [ObjectOnOffMapping].[DataFieldName] AS [DataFieldName], 
+    [ObjectOnOffMapping].[Type] AS [Type], 
+    [ObjectOnOffMapping].[OnValue] AS [OnValue], 
+    [ObjectOnOffMapping].[OffValue] AS [OffValue], 
+    [ObjectOnOffMapping].[Thresold] AS [Thresold]
+    FROM [dbo].[ObjectOnOffMapping] AS [ObjectOnOffMapping]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ObjectUnitMapping" EntityType="Self.ObjectUnitMapping" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ObjectUnitMapping].[Id] AS [Id], 
+    [ObjectUnitMapping].[ObjectDataField] AS [ObjectDataField], 
+    [ObjectUnitMapping].[UnitId] AS [UnitId], 
+    [ObjectUnitMapping].[UnitName] AS [UnitName]
+    FROM [dbo].[ObjectUnitMapping] AS [ObjectUnitMapping]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Permission" EntityType="Self.Permission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Permission].[Id] AS [Id], 
+    [Permission].[Name] AS [Name], 
+    [Permission].[Description] AS [Description], 
+    [Permission].[IsActive] AS [IsActive], 
+    [Permission].[CreatedBy] AS [CreatedBy], 
+    [Permission].[CreatedDate] AS [CreatedDate], 
+    [Permission].[UpdatedBy] AS [UpdatedBy], 
+    [Permission].[UpdatedDate] AS [UpdatedDate], 
+    [Permission].[IPAddress] AS [IPAddress]
+    FROM [dbo].[Permission] AS [Permission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PowerMonthlyTariff" EntityType="Self.PowerMonthlyTariff" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PowerMonthlyTariff].[ID] AS [ID], 
+    [PowerMonthlyTariff].[MonthDateTime] AS [MonthDateTime], 
+    [PowerMonthlyTariff].[Tariff] AS [Tariff], 
+    [PowerMonthlyTariff].[TimeStamp] AS [TimeStamp]
+    FROM [dbo].[PowerMonthlyTariff] AS [PowerMonthlyTariff]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reading" EntityType="Self.Reading" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reading].[Id] AS [Id], 
+    [Reading].[BuildingFkId] AS [BuildingFkId], 
+    [Reading].[BuildingId] AS [BuildingId], 
+    [Reading].[ObjectFkId] AS [ObjectFkId], 
+    [Reading].[ObjectId] AS [ObjectId], 
+    [Reading].[DataFieldFkId] AS [DataFieldFkId], 
+    [Reading].[DataFieldId] AS [DataFieldId], 
+    [Reading].[Value] AS [Value], 
+    [Reading].[Timestamp] AS [Timestamp], 
+    [Reading].[IsActive] AS [IsActive], 
+    [Reading].[CreatedBy] AS [CreatedBy], 
+    [Reading].[CreatedDate] AS [CreatedDate], 
+    [Reading].[UpdatedBy] AS [UpdatedBy], 
+    [Reading].[UpdatedDate] AS [UpdatedDate], 
+    [Reading].[IPAddress] AS [IPAddress], 
+    [Reading].[IsAlertProcess] AS [IsAlertProcess], 
+    [Reading].[UtcTimestamp] AS [UtcTimestamp]
+    FROM [dbo].[Reading] AS [Reading]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Role].[Id] AS [Id], 
+    [Role].[Name] AS [Name], 
+    [Role].[Description] AS [Description], 
+    [Role].[IsActive] AS [IsActive], 
+    [Role].[CreatedBy] AS [CreatedBy], 
+    [Role].[CreatedDate] AS [CreatedDate], 
+    [Role].[UpdatedBy] AS [UpdatedBy], 
+    [Role].[UpdatedDate] AS [UpdatedDate], 
+    [Role].[IPAddress] AS [IPAddress], 
+    [Role].[ExpirationTime] AS [ExpirationTime]
+    FROM [dbo].[Role] AS [Role]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RolePermission" EntityType="Self.RolePermission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RolePermission].[RoleFkId] AS [RoleFkId], 
+    [RolePermission].[PermissionFkId] AS [PermissionFkId], 
+    [RolePermission].[Rolename] AS [Rolename], 
+    [RolePermission].[Permissionname] AS [Permissionname], 
+    [RolePermission].[IsActive] AS [IsActive], 
+    [RolePermission].[CreatedBy] AS [CreatedBy], 
+    [RolePermission].[CreatedDate] AS [CreatedDate], 
+    [RolePermission].[UpdatedBy] AS [UpdatedBy], 
+    [RolePermission].[UpdatedDate] AS [UpdatedDate], 
+    [RolePermission].[IPAddress] AS [IPAddress]
+    FROM [dbo].[RolePermission] AS [RolePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Site" EntityType="Self.Site" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Site].[Id] AS [Id], 
+    [Site].[Name] AS [Name], 
+    [Site].[Address] AS [Address], 
+    [Site].[Latitude] AS [Latitude], 
+    [Site].[Longitude] AS [Longitude], 
+    [Site].[ImageLocation] AS [ImageLocation], 
+    [Site].[Active] AS [Active]
+    FROM [dbo].[Site] AS [Site]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TempReading" EntityType="Self.TempReading" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TempReading].[Id] AS [Id], 
+    [TempReading].[BuildingFkId] AS [BuildingFkId], 
+    [TempReading].[BuildingId] AS [BuildingId], 
+    [TempReading].[ObjectFkId] AS [ObjectFkId], 
+    [TempReading].[ObjectId] AS [ObjectId], 
+    [TempReading].[ObjectNo] AS [ObjectNo], 
+    [TempReading].[DataFieldFkId] AS [DataFieldFkId], 
+    [TempReading].[DataFieldId] AS [DataFieldId], 
+    [TempReading].[Value] AS [Value], 
+    [TempReading].[Timestamp] AS [Timestamp], 
+    [TempReading].[ExpressionColumn] AS [ExpressionColumn], 
+    [TempReading].[IsProcess] AS [IsProcess], 
+    [TempReading].[IsActive] AS [IsActive], 
+    [TempReading].[CreatedBy] AS [CreatedBy], 
+    [TempReading].[CreatedDate] AS [CreatedDate], 
+    [TempReading].[UpdatedBy] AS [UpdatedBy], 
+    [TempReading].[UpdatedDate] AS [UpdatedDate], 
+    [TempReading].[IPAddress] AS [IPAddress], 
+    [TempReading].[Computed] AS [Computed], 
+    [TempReading].[UtcTimestamp] AS [UtcTimestamp]
+    FROM [dbo].[TempReading] AS [TempReading]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [User].[Id] AS [Id], 
+    [User].[Email] AS [Email], 
+    [User].[Username] AS [Username], 
+    [User].[Password] AS [Password], 
+    [User].[FullName] AS [FullName], 
+    [User].[MobileNo] AS [MobileNo], 
+    [User].[PhoneNo] AS [PhoneNo], 
+    [User].[Image] AS [Image], 
+    [User].[IsActive] AS [IsActive], 
+    [User].[CreatedBy] AS [CreatedBy], 
+    [User].[CreatedDate] AS [CreatedDate], 
+    [User].[UpdatedBy] AS [UpdatedBy], 
+    [User].[UpdatedDate] AS [UpdatedDate], 
+    [User].[IPAddress] AS [IPAddress], 
+    [User].[Designation] AS [Designation], 
+    [User].[IsLoggedIn] AS [IsLoggedIn], 
+    [User].[IsAdministrator] AS [IsAdministrator]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserLog" EntityType="Self.UserLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserLog].[LogId] AS [LogId], 
+    [UserLog].[UserId] AS [UserId], 
+    [UserLog].[Email] AS [Email], 
+    [UserLog].[SignInOutTime] AS [SignInOutTime], 
+    [UserLog].[SignType] AS [SignType]
+    FROM [dbo].[UserLog] AS [UserLog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserRole].[UserId] AS [UserId], 
+    [UserRole].[RoleId] AS [RoleId], 
+    [UserRole].[Username] AS [Username], 
+    [UserRole].[Rolename] AS [Rolename], 
+    [UserRole].[IsActive] AS [IsActive], 
+    [UserRole].[CreatedBy] AS [CreatedBy], 
+    [UserRole].[CreatedDate] AS [CreatedDate], 
+    [UserRole].[UpdatedBy] AS [UpdatedBy], 
+    [UserRole].[UpdatedDate] AS [UpdatedDate], 
+    [UserRole].[IPAddress] AS [IPAddress], 
+    [UserRole].[UserRoleId] AS [UserRoleId]
+    FROM [dbo].[UserRole] AS [UserRole]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FMCCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alarm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Itqf" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AcknowledgeRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PreviousStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="IsProcess" Type="Boolean" />
+          <Property Name="FMCCStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AlarmStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AlarmSupress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Itqf" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Alert">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertRuleId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ObjetFkId" Type="Int32" Nullable="false" />
+          <Property Name="ObjetId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ToDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Severity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertValue" Type="Double" Nullable="false" />
+          <Property Name="ReferenceValue" Type="Double" Nullable="false" />
+          <Property Name="LastRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertCondition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FMCCStatus" Type="Int32" Nullable="false" />
+          <Property Name="IsSMS" Type="Boolean" Nullable="false" />
+          <Property Name="IsEmail" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AnyTemperatureCondition" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AlertAverageSetup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Minute" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertRuleSetupId" Type="Int32" />
+          <Property Name="BuildingFkId" Type="Int32" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectFkId" Type="Int32" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldFkId" Type="Int32" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReadingValue" Type="Double" />
+          <Property Name="ReferencValue" Type="Double" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="Severity" Type="Int32" />
+          <Property Name="Condition" Type="Int32" />
+          <Property Name="IsEmail" Type="Boolean" />
+          <Property Name="IsSMS" Type="Boolean" />
+          <Property Name="IsProcess" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AlertNotifyUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertRuleSetupId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AlertRuleSetup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="BuildingFkId" Type="Int32" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectFkId" Type="Int32" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataFieldFkId" Type="Int32" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="Int32" />
+          <Property Name="ThresholdValue" Type="Double" />
+          <Property Name="Severity" Type="Int32" />
+          <Property Name="ReferenceValue" Type="Double" />
+          <Property Name="FixedRuleByFMCC" Type="Boolean" />
+          <Property Name="IsEmail" Type="Boolean" />
+          <Property Name="IsSMS" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="WeekDays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="SelectedDataIds" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Percentage" Type="Double" />
+        </EntityType>
+        <EntityType Name="AlertSuppress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="From_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="to_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GFA" Type="Double" />
+          <Property Name="EUI" Type="Double" />
+          <Property Name="ContactPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GreenMarkRating" Type="Int32" />
+          <Property Name="GreenMarkExpiry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Award" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="AirconditionedArea" Type="Double" />
+          <Property Name="Established" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkingPeriodStart" Type="DateTime" Precision="3" />
+          <Property Name="WorkingPeriodEnd" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Lattitude" Type="Double" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkingPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tariff" Type="Double" />
+          <Property Name="NotificationProcess" Type="Int32" />
+          <Property Name="ChillerPlantBitmap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChwFlowDesigned" Type="Double" />
+          <Property Name="CwFlowDesigned" Type="Double" />
+          <Property Name="BaselineType" Type="Int32" />
+          <Property Name="OperatingFromWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperatingToWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="SiteId" Type="Int32" />
+          <Property Name="BedNo" Type="Int32" />
+          <Property Name="ShortName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContractCapacity" Type="Decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="BuildingAlarmForward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingFkId" Type="Int32" />
+          <Property Name="BuildingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BuildingObjectData">
+          <Key>
+            <PropertyRef Name="BuildingFkId" />
+            <PropertyRef Name="ObjectFkId" />
+            <PropertyRef Name="DataFieldFkId" />
+            <PropertyRef Name="BuildingId" />
+            <PropertyRef Name="ObjectId" />
+            <PropertyRef Name="DataFieldId" />
+          </Key>
+          <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+          <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataFieldUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RawDataFieldNumber" Type="Int32" />
+          <Property Name="ComputedDataFieldNumber" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BuildingUser">
+          <Key>
+            <PropertyRef Name="BuildingFkId" />
+            <PropertyRef Name="UserFkId" />
+            <PropertyRef Name="BuildingId" />
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+          <Property Name="UserFkId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DashboardMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserFkId" Type="Int32" />
+          <Property Name="UrlPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DashboardMenuPreset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserFkId" Type="Int32" />
+          <Property Name="MenuId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuFkId" Type="Int32" />
+          <Property Name="BlockId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlockFkId" Type="Int32" />
+          <Property Name="BlockText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectFkId" Type="Int32" />
+          <Property Name="ObjectText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldFkId" Type="Int32" />
+          <Property Name="DataFieldText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateFlagText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChartType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChartTypeText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="DisplayProfile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectToCompareId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectToCompareText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldToCompareId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldToCompareText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChartTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="RATemperature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ValveOutput" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThresholdRangeFrom" Type="Double" />
+          <Property Name="ThresholdRangeTo" Type="Double" />
+          <Property Name="TemperatureSetPoint" Type="Double" />
+        </EntityType>
+        <EntityType Name="DataField">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsRaw" Type="Boolean" />
+          <Property Name="IsCompute" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DataFieldUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Expression">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Expr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItqfReplacement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Itqf" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReplacementName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuItem" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="ModuleId" Type="Int32" />
+          <Property Name="PermissionRole" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MenuAuthentication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="MenuId" Type="Int32" />
+          <Property Name="IsAuthorized" Type="Boolean" />
+          <Property Name="PermissionRole" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Object">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsRaw" Type="Boolean" />
+          <Property Name="IsCompute" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ObjectOnOffMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectFkId" Type="Int32" />
+          <Property Name="ObjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldFkId" Type="Int32" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataFieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="OnValue" Type="Int32" />
+          <Property Name="OffValue" Type="Int32" />
+          <Property Name="Thresold" Type="Double" />
+        </EntityType>
+        <EntityType Name="ObjectUnitMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectDataField" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Reading">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingFkId" Type="Int32" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectFkId" Type="Int32" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataFieldFkId" Type="Int32" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="Double" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsAlertProcess" Type="Boolean" />
+          <Property Name="UtcTimestamp" Type="Double" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExpirationTime" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="RoleFkId" />
+            <PropertyRef Name="PermissionFkId" />
+            <PropertyRef Name="Rolename" />
+            <PropertyRef Name="Permissionname" />
+          </Key>
+          <Property Name="RoleFkId" Type="Int32" Nullable="false" />
+          <Property Name="PermissionFkId" Type="Int32" Nullable="false" />
+          <Property Name="Rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Permissionname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TempReading">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+          <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+          <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+          <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="Double" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsProcess" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Computed" Type="Boolean" />
+          <Property Name="UtcTimestamp" Type="Double" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsLoggedIn" Type="Boolean" />
+          <Property Name="IsAdministrator" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SignInOutTime" Type="DateTime" Precision="3" />
+          <Property Name="SignType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="FMCCDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alarms" EntityType="Self.Alarm" />
+          <EntitySet Name="AlarmStatus" EntityType="Self.AlarmStatu" />
+          <EntitySet Name="AlarmSupresses" EntityType="Self.AlarmSupress" />
+          <EntitySet Name="Alerts" EntityType="Self.Alert" />
+          <EntitySet Name="AlertAverageSetups" EntityType="Self.AlertAverageSetup" />
+          <EntitySet Name="AlertDatas" EntityType="Self.AlertData" />
+          <EntitySet Name="AlertNotifyUsers" EntityType="Self.AlertNotifyUser" />
+          <EntitySet Name="AlertRuleSetups" EntityType="Self.AlertRuleSetup" />
+          <EntitySet Name="AlertSuppresses" EntityType="Self.AlertSuppress" />
+          <EntitySet Name="Buildings" EntityType="Self.Building" />
+          <EntitySet Name="BuildingAlarmForwards" EntityType="Self.BuildingAlarmForward" />
+          <EntitySet Name="BuildingObjectDatas" EntityType="Self.BuildingObjectData" />
+          <EntitySet Name="BuildingUsers" EntityType="Self.BuildingUser" />
+          <EntitySet Name="DashboardMenus" EntityType="Self.DashboardMenu" />
+          <EntitySet Name="DashboardMenuPresets" EntityType="Self.DashboardMenuPreset" />
+          <EntitySet Name="DataFields" EntityType="Self.DataField" />
+          <EntitySet Name="DataFieldUnits" EntityType="Self.DataFieldUnit" />
+          <EntitySet Name="Expressions" EntityType="Self.Expression" />
+          <EntitySet Name="ItqfReplacements" EntityType="Self.ItqfReplacement" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="MenuAuthentications" EntityType="Self.MenuAuthentication" />
+          <EntitySet Name="Modules" EntityType="Self.Module" />
+          <EntitySet Name="Objects" EntityType="Self.Object" />
+          <EntitySet Name="ObjectOnOffMappings" EntityType="Self.ObjectOnOffMapping" />
+          <EntitySet Name="ObjectUnitMappings" EntityType="Self.ObjectUnitMapping" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="Readings" EntityType="Self.Reading" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RolePermissions" EntityType="Self.RolePermission" />
+          <EntitySet Name="TempReadings" EntityType="Self.TempReading" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Sites" EntityType="FMCCModel.Site" />
+          <EntitySet Name="BuildingTypes" EntityType="FMCCModel.BuildingType" />
+          <EntitySet Name="PowerMonthlyTariffs" EntityType="FMCCModel.PowerMonthlyTariff" />
+          <EntitySet Name="CO2EmissionFactor" EntityType="FMCCModel.CO2EmissionFactor" />
+        </EntityContainer>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="Longitude" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="ImageLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="BuildingType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PowerMonthlyTariff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonthDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Tariff" Type="Decimal" Precision="16" Scale="4" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CO2EmissionFactor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="AverageOperatingMargin" Type="Decimal" Precision="16" Scale="4" />
+          <Property Name="BuildMargin" Type="Decimal" Precision="16" Scale="4" />
+          <Property Name="CombinedMargin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FMCCModelStoreContainer" CdmEntityContainer="FMCCDataContext">
+          <EntitySetMapping Name="Alarms">
+            <EntityTypeMapping TypeName="FMCCModel.Alarm">
+              <MappingFragment StoreEntitySet="Alarm">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="Itqf" ColumnName="Itqf" />
+                <ScalarProperty Name="ItemCategory" ColumnName="ItemCategory" />
+                <ScalarProperty Name="AcknowledgeRequired" ColumnName="AcknowledgeRequired" />
+                <ScalarProperty Name="PreviousStatus" ColumnName="PreviousStatus" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="IsProcess" ColumnName="IsProcess" />
+                <ScalarProperty Name="FMCCStatus" ColumnName="FMCCStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmStatus">
+            <EntityTypeMapping TypeName="FMCCModel.AlarmStatu">
+              <MappingFragment StoreEntitySet="AlarmStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmSupresses">
+            <EntityTypeMapping TypeName="FMCCModel.AlarmSupress">
+              <MappingFragment StoreEntitySet="AlarmSupress">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Itqf" ColumnName="Itqf" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alerts">
+            <EntityTypeMapping TypeName="FMCCModel.Alert">
+              <MappingFragment StoreEntitySet="Alert">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AlertRuleId" ColumnName="AlertRuleId" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjetFkId" ColumnName="ObjetFkId" />
+                <ScalarProperty Name="ObjetId" ColumnName="ObjetId" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="FromDateTime" ColumnName="FromDateTime" />
+                <ScalarProperty Name="ToDateTime" ColumnName="ToDateTime" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+                <ScalarProperty Name="ReferenceValue" ColumnName="ReferenceValue" />
+                <ScalarProperty Name="LastRecord" ColumnName="LastRecord" />
+                <ScalarProperty Name="AlertCondition" ColumnName="AlertCondition" />
+                <ScalarProperty Name="FMCCStatus" ColumnName="FMCCStatus" />
+                <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+                <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="AnyTemperatureCondition" ColumnName="AnyTemperatureCondition" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertAverageSetups">
+            <EntityTypeMapping TypeName="FMCCModel.AlertAverageSetup">
+              <MappingFragment StoreEntitySet="AlertAverageSetup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Minute" ColumnName="Minute" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertDatas">
+            <EntityTypeMapping TypeName="FMCCModel.AlertData">
+              <MappingFragment StoreEntitySet="AlertData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AlertRuleSetupId" ColumnName="AlertRuleSetupId" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="ReadingValue" ColumnName="ReadingValue" />
+                <ScalarProperty Name="ReferencValue" ColumnName="ReferencValue" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+                <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+                <ScalarProperty Name="IsProcess" ColumnName="IsProcess" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertNotifyUsers">
+            <EntityTypeMapping TypeName="FMCCModel.AlertNotifyUser">
+              <MappingFragment StoreEntitySet="AlertNotifyUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AlertRuleSetupId" ColumnName="AlertRuleSetupId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertRuleSetups">
+            <EntityTypeMapping TypeName="FMCCModel.AlertRuleSetup">
+              <MappingFragment StoreEntitySet="AlertRuleSetup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AlertText" ColumnName="AlertText" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="ThresholdValue" ColumnName="ThresholdValue" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="ReferenceValue" ColumnName="ReferenceValue" />
+                <ScalarProperty Name="FixedRuleByFMCC" ColumnName="FixedRuleByFMCC" />
+                <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+                <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SelectedDataIds" ColumnName="SelectedDataIds" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertSuppresses">
+            <EntityTypeMapping TypeName="FMCCModel.AlertSuppress">
+              <MappingFragment StoreEntitySet="AlertSuppress">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="From_Date" ColumnName="From Date" />
+                <ScalarProperty Name="to_Date" ColumnName="to Date" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buildings">
+            <EntityTypeMapping TypeName="FMCCModel.Building">
+              <MappingFragment StoreEntitySet="Building">
+                <ScalarProperty Name="ContractCapacity" ColumnName="ContractCapacity" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="BedNo" ColumnName="BedNo" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="GFA" ColumnName="GFA" />
+                <ScalarProperty Name="EUI" ColumnName="EUI" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="GreenMarkRating" ColumnName="GreenMarkRating" />
+                <ScalarProperty Name="GreenMarkExpiry" ColumnName="GreenMarkExpiry" />
+                <ScalarProperty Name="Award" ColumnName="Award" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="AirconditionedArea" ColumnName="AirconditionedArea" />
+                <ScalarProperty Name="Established" ColumnName="Established" />
+                <ScalarProperty Name="WorkingPeriodStart" ColumnName="WorkingPeriodStart" />
+                <ScalarProperty Name="WorkingPeriodEnd" ColumnName="WorkingPeriodEnd" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="WorkingPeriod" ColumnName="WorkingPeriod" />
+                <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+                <ScalarProperty Name="NotificationProcess" ColumnName="NotificationProcess" />
+                <ScalarProperty Name="ChillerPlantBitmap" ColumnName="ChillerPlantBitmap" />
+                <ScalarProperty Name="ChwFlowDesigned" ColumnName="ChwFlowDesigned" />
+                <ScalarProperty Name="CwFlowDesigned" ColumnName="CwFlowDesigned" />
+                <ScalarProperty Name="BaselineType" ColumnName="BaselineType" />
+                <ScalarProperty Name="OperatingFromWeekDay" ColumnName="OperatingFromWeekDay" />
+                <ScalarProperty Name="OperatingToWeekDay" ColumnName="OperatingToWeekDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildingAlarmForwards">
+            <EntityTypeMapping TypeName="FMCCModel.BuildingAlarmForward">
+              <MappingFragment StoreEntitySet="BuildingAlarmForward">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildingObjectDatas">
+            <EntityTypeMapping TypeName="FMCCModel.BuildingObjectData">
+              <MappingFragment StoreEntitySet="BuildingObjectData">
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="DataFieldUnit" ColumnName="DataFieldUnit" />
+                <ScalarProperty Name="RawDataFieldNumber" ColumnName="RawDataFieldNumber" />
+                <ScalarProperty Name="ComputedDataFieldNumber" ColumnName="ComputedDataFieldNumber" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildingUsers">
+            <EntityTypeMapping TypeName="FMCCModel.BuildingUser">
+              <MappingFragment StoreEntitySet="BuildingUser">
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DashboardMenus">
+            <EntityTypeMapping TypeName="FMCCModel.DashboardMenu">
+              <MappingFragment StoreEntitySet="DashboardMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+                <ScalarProperty Name="UrlPath" ColumnName="UrlPath" />
+                <ScalarProperty Name="MenuOrder" ColumnName="MenuOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DashboardMenuPresets">
+            <EntityTypeMapping TypeName="FMCCModel.DashboardMenuPreset">
+              <MappingFragment StoreEntitySet="DashboardMenuPreset">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuFkId" ColumnName="MenuFkId" />
+                <ScalarProperty Name="BlockId" ColumnName="BlockId" />
+                <ScalarProperty Name="BlockFkId" ColumnName="BlockFkId" />
+                <ScalarProperty Name="BlockText" ColumnName="BlockText" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="ObjectText" ColumnName="ObjectText" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldText" ColumnName="DataFieldText" />
+                <ScalarProperty Name="DateFlag" ColumnName="DateFlag" />
+                <ScalarProperty Name="DateFlagText" ColumnName="DateFlagText" />
+                <ScalarProperty Name="ChartType" ColumnName="ChartType" />
+                <ScalarProperty Name="ChartTypeText" ColumnName="ChartTypeText" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="DisplayProfile" ColumnName="DisplayProfile" />
+                <ScalarProperty Name="ObjectToCompareId" ColumnName="ObjectToCompareId" />
+                <ScalarProperty Name="ObjectToCompareText" ColumnName="ObjectToCompareText" />
+                <ScalarProperty Name="DataFieldToCompareId" ColumnName="DataFieldToCompareId" />
+                <ScalarProperty Name="DataFieldToCompareText" ColumnName="DataFieldToCompareText" />
+                <ScalarProperty Name="ChartTitle" ColumnName="ChartTitle" />
+                <ScalarProperty Name="RATemperature" ColumnName="RATemperature" />
+                <ScalarProperty Name="ValveOutput" ColumnName="ValveOutput" />
+                <ScalarProperty Name="ThresholdRangeFrom" ColumnName="ThresholdRangeFrom" />
+                <ScalarProperty Name="ThresholdRangeTo" ColumnName="ThresholdRangeTo" />
+                <ScalarProperty Name="TemperatureSetPoint" ColumnName="TemperatureSetPoint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataFields">
+            <EntityTypeMapping TypeName="FMCCModel.DataField">
+              <MappingFragment StoreEntitySet="DataField">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="IsRaw" ColumnName="IsRaw" />
+                <ScalarProperty Name="IsCompute" ColumnName="IsCompute" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataFieldUnits">
+            <EntityTypeMapping TypeName="FMCCModel.DataFieldUnit">
+              <MappingFragment StoreEntitySet="DataFieldUnit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expressions">
+            <EntityTypeMapping TypeName="FMCCModel.Expression">
+              <MappingFragment StoreEntitySet="Expression">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="Expr" ColumnName="Expr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItqfReplacements">
+            <EntityTypeMapping TypeName="FMCCModel.ItqfReplacement">
+              <MappingFragment StoreEntitySet="ItqfReplacement">
+                <ScalarProperty Name="Itqf" ColumnName="Itqf" />
+                <ScalarProperty Name="ReplacementName" ColumnName="ReplacementName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="FMCCModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="PermissionRole" ColumnName="PermissionRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuAuthentications">
+            <EntityTypeMapping TypeName="FMCCModel.MenuAuthentication">
+              <MappingFragment StoreEntitySet="MenuAuthentication">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="IsAuthorized" ColumnName="IsAuthorized" />
+                <ScalarProperty Name="PermissionRole" ColumnName="PermissionRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="FMCCModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Objects">
+            <EntityTypeMapping TypeName="FMCCModel.Object">
+              <MappingFragment StoreEntitySet="Object">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="IsRaw" ColumnName="IsRaw" />
+                <ScalarProperty Name="IsCompute" ColumnName="IsCompute" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObjectOnOffMappings">
+            <EntityTypeMapping TypeName="FMCCModel.ObjectOnOffMapping">
+              <MappingFragment StoreEntitySet="ObjectOnOffMapping">
+                <ScalarProperty Name="Thresold" ColumnName="Thresold" />
+                <ScalarProperty Name="OffValue" ColumnName="OffValue" />
+                <ScalarProperty Name="OnValue" ColumnName="OnValue" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="DataFieldName" ColumnName="DataFieldName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObjectUnitMappings">
+            <EntityTypeMapping TypeName="FMCCModel.ObjectUnitMapping">
+              <MappingFragment StoreEntitySet="ObjectUnitMapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectDataField" ColumnName="ObjectDataField" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="FMCCModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Readings">
+            <EntityTypeMapping TypeName="FMCCModel.Reading">
+              <MappingFragment StoreEntitySet="Reading">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsAlertProcess" ColumnName="IsAlertProcess" />
+                <ScalarProperty Name="UtcTimestamp" ColumnName="UtcTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="FMCCModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="ExpirationTime" ColumnName="ExpirationTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolePermissions">
+            <EntityTypeMapping TypeName="FMCCModel.RolePermission">
+              <MappingFragment StoreEntitySet="RolePermission">
+                <ScalarProperty Name="RoleFkId" ColumnName="RoleFkId" />
+                <ScalarProperty Name="PermissionFkId" ColumnName="PermissionFkId" />
+                <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+                <ScalarProperty Name="Permissionname" ColumnName="Permissionname" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempReadings">
+            <EntityTypeMapping TypeName="FMCCModel.TempReading">
+              <MappingFragment StoreEntitySet="TempReading">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+                <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+                <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+                <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+                <ScalarProperty Name="IsProcess" ColumnName="IsProcess" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="Computed" ColumnName="Computed" />
+                <ScalarProperty Name="UtcTimestamp" ColumnName="UtcTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FMCCModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+                <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogs">
+            <EntityTypeMapping TypeName="FMCCModel.UserLog">
+              <MappingFragment StoreEntitySet="UserLog">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SignInOutTime" ColumnName="SignInOutTime" />
+                <ScalarProperty Name="SignType" ColumnName="SignType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="FMCCModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="FMCCModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildingTypes">
+            <EntityTypeMapping TypeName="FMCCModel.BuildingType">
+              <MappingFragment StoreEntitySet="BuildingType">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PowerMonthlyTariffs">
+            <EntityTypeMapping TypeName="FMCCModel.PowerMonthlyTariff">
+              <MappingFragment StoreEntitySet="PowerMonthlyTariff">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+                <ScalarProperty Name="MonthDateTime" ColumnName="MonthDateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO2EmissionFactor">
+            <EntityTypeMapping TypeName="FMCCModel.CO2EmissionFactor">
+              <MappingFragment StoreEntitySet="CO2EmissionFactor">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="CombinedMargin" ColumnName="CombinedMargin" />
+                <ScalarProperty Name="BuildMargin" ColumnName="BuildMargin" />
+                <ScalarProperty Name="AverageOperatingMargin" ColumnName="AverageOperatingMargin" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="RecordDateTime" ColumnName="RecordDateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

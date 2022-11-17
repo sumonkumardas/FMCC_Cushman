@@ -1,0 +1,114 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+
+  
+  <style type="text/css">
+    
+  </style>
+
+  <title>Highcharts Demo</title>
+
+  
+    
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+
+$(function () {
+    cloneToolTip = null;
+    checkx = [];
+    cloneFrame = [];
+    cloneText = [];
+    chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container'
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+
+        plotOptions: {
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function (event) {
+                            //check if point was already clicked
+                            var x = checkx.indexOf(event.point.x);
+                            if ( x >= 0 ) {
+                                //remove tooltip
+                                $(cloneFrame[x]).remove();
+                                $(cloneText[x]).remove();
+
+                                //remove x coordinate and clone from array --> tooltip can be displayed again
+                                cloneText.splice(x, 1);
+                                cloneFrame.splice(x, 1);
+                                checkx.splice(x, 1);
+                            } else {
+                                var cloneDiv = this.series.chart.tooltip.label.div.cloneNode(true),
+                                    cloneToolTip = this.series.chart.tooltip.label.element.cloneNode(true);
+                                chart.container.appendChild(cloneDiv); chart.container.firstChild.appendChild(cloneToolTip);
+                                //save coordinates and tooltip object
+                                checkx.push(event.point.x);
+                                cloneFrame.push(cloneToolTip);
+                                cloneText.push(cloneDiv);
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        tooltip: {
+            shared: true,
+            useHTML: true
+        },
+        series: [{
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        },{
+            data: [194.1, 95.6, 54.4, 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4]
+        }]
+    });
+});
+//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+<div id="container" style="height: 400px"></div>
+  
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "7vkZV"
+    }], "*")
+  }
+</script>
+
+</body>
+
+</html>
+

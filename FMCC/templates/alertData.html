@@ -1,0 +1,410 @@
+﻿<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cogs"></i>
+                    <h3 class="box-title">Alert Setup Rules</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <form novalidate="novalidate" name="userRoleForm" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                        <input type="hidden" id="alertRuleSetupId" />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Title
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input id="alertRuleSetupAlertText" type="text" class="form-control input-sm" placeholder="Please enter a alert text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            <span> Fixed Rule by Administrator </span>
+                                            <input type="checkbox" id="alertRuleSetupFixedRuleByFMCC" />
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Remarks
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input id="alertRuleSetupRemarks" type="text" class="form-control input-sm" placeholder="Please enter remarks" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Type
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="alertRuleSetupType" class="severity form-control input-sm" data-placeholder="Please select a Type">
+                                                <option></option>
+                                                <option value="1">Total Power Consumption</option>
+                                                <option value="2">Total Water Consumption</option>
+                                                <option value="3">Any Temperature Point</option>
+                                                <option value="4">Any Equipment</option>
+                                                <option value="5">Single Point</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Block
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="alertRuleSetupBlock" class="block form-control input-group"  data-placeholder="Please select a block">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="divObject">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Object
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="alertRuleSetupObject" class="object form-control input-sm" data-placeholder="Please select a object">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" id="divDatafield">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Data Field
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="alertRuleSetupDataField" class="dataField form-control input-sm" data-placeholder="Please select a data field">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="divMultiData" hidden="hidden">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Data Field
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="alertRuleSetupMultiData" multiple="multiple" class="object form-control input-sm" data-placeholder="Please select a object">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Reference Value
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input type="text" id="alertRuleSetupReference" class="form-control input-sm" placeholder="Please enter Reference value">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group clearfix">
+                                    <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                        Condition
+                                    </div>
+                                    <div class="col-sm-12 no-padding">
+                                        <select id="alertRuleSetupCondition" class="condition form-control input-sm" data-placeholder="Please select a condition">
+                                            <option></option>
+                                            <option value="1">Above</option>
+                                            <option value="2">Below</option>
+                                            <option value="3">Deviate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group clearfix">
+                                    <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                        Severity
+                                    </div>
+                                    <div class="col-sm-12 no-padding">
+                                        <select id="alertRuleSetupSeverity" class="severity form-control input-sm" data-placeholder="Please select a severity">
+                                            <option></option>
+                                            <option value="1">Minor</option>
+                                            <option value="2">Major</option>
+                                            <option value="3">Critical</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="row percentage">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Percentage
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input id="alertRulePercentage" type="text" class="form-control input-sm" placeholder="Please enter percentage" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+
+                    <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Start Time
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input type='text' class="form-control" placeholder="From Date" id='startdate' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            End Time
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input type='text' class="form-control" placeholder="From Date" id='enddate' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            <input type="checkbox" id="chkMonday" />
+                                            <span> Monday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            
+                                            <input type="checkbox" id="chkTuesday" />
+                                            <span> Tuesday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-md-7">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            
+                                            <input type="checkbox" id="chkWednesday" />
+                                            <span> Wednesday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            
+                                            <input type="checkbox" id="chkThursay" />
+                                            <span> Thursday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            
+                                            <input type="checkbox" id="chkFriday" />
+                                            <span> Friday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            
+                                            <input type="checkbox" id="chkSaturday" />
+                                            <span> Saturday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding">&nbsp;</div>
+                                        <div class="col-sm-12 no-padding">
+                                            <!--<div style="border: 1px solid rgb(213, 213, 213); padding: 3px 4px;">-->
+                                            
+                                            <input type="checkbox" id="chkSunday" />
+                                            <span> Sunday </span>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="text-right">
+                                            <button ng-show="form.mode.edit" ng-click="updateAlertRuleSetup()" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Update</button>
+                                            <button ng-show="form.mode.edit" ng-click="deleteAlertRuleSetup()" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Delete</button>
+                                            <button ng-show="!form.mode.edit" ng-click="submitAlertRuleSetup()" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Save</button>
+                                            <button ng-click="cancelAlertRuleSetup()" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-12 table-responsive" style="margin-top: 10px; padding-top: 15px; background: #fff;">
+            <table id="alarm-rule-setup-table" class="table table-condensed table-striped">
+
+            </table>
+        </div>
+    </div>
+</div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group clearfix">
+                                    <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                        Start Time
+                                    </div>
+                                    <div class="col-sm-12 no-padding">
+                                        <input type='text' class="form-control" placeholder="From Date" id='post_startdate' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group clearfix">
+                                    <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                        End Time
+                                    </div>
+                                    <div class="col-sm-12 no-padding">
+                                        <input type='text' class="form-control" placeholder="From Date" id='post_enddate' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnProcess" >Process</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

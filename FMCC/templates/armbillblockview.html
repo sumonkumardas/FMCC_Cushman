@@ -1,0 +1,187 @@
+﻿<div class="content" style="background-color: #f4f8fe;">
+    <div class="row" style="background-color: #f4f8fe;">
+        <div class="col-md-12" style="background-color: #f4f8fe;">
+            <div class="box box-default" style="margin-bottom: 0px; padding: 2px; background-color: #f4f8fe; border: 0 !important; box-shadow: 0 0 5px #EDEEF1;">
+                <div class="box-header with-border" style="background-color: #f4f8fe; padding-top: 0px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>
+                                {{blockName}}, {{DisplayTitleDateTime}}
+                                <!--({{totalPowerConsumption.timerange}})-->
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3 class="box-title">
+                                <button class="btn btn-default previewButton" id="btnDay" ng-click="dayClick()">DAY</button>
+                                <button class="btn btn-default previewButton" id="btnWeek" ng-click="weekClick()">WEEK</button>
+                                <button class="btn btn-default previewButton" id="btnMonth" ng-click="monthClick()">MONTH</button>
+                                <button class="btn btn-default previewButton" id="btnYear" ng-click="yearClick()">YEAR</button>
+                                <input type="input" id="customDate" ng-model="customDate" style="width:0px; visibility: visible; opacity: 0;" />
+                                <button class="btn btn-default previewButton" id="btnCustom" ng-click="customClick()">CUSTOM</button>
+                            </h3>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box-tools pull-right" style="float: right; visibility: visible;">
+                                <button class="btn btn-default previewButtonAvg" id="btnTotal" ng-click="totalClick()">SGD</button>
+                                <button class="btn btn-default previewButtonAvg" id="btnGFA" ng-click="gfaClick()">EUI (SGD/m<sup>2</sup>)</button>
+                                <button class="btn btn-default previewButtonAvg" id="btnBeds" ng-click="bedsClick()">SGD/bed</button>
+                            </div>
+                        </div>
+                        <div class="col-md-0" style="display: none;">
+                            <div class="box-tools pull-right" style="float: right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                            <div>
+                                <select id="block-selector" ng-model="block" class="report-select" style="">
+                                    <option value="-1">Overall</option>
+                                    <option ng-repeat="block in blockesList" value={{block.Id}}>{{block.Name}}</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button ng-click="nextDateSlot()" class="btn btn-secondary" style="float: right; height: 35px; border: 1px solid #d2d6de;">></button>
+                            </div>
+                            <div>
+                                <select id="date-selector" ng-model="date" class="report-select">
+                                    <option value="lastweek">Last Week</option>
+                                    <option value="lastmonth">Last Month</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button ng-click="previousDateSlot()" class="btn btn-secondary" style="float: right; height: 35px; border: 1px solid #d2d6de;"><</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:10px 15px 30px;">
+                    <div class="row" style="background-color: #f4f8fe;">
+                        <div class="col-md-4 nopadding">
+                            <div class="info-box info-box-custom" style="">
+                                <div class="">
+                                    <div class="" style="text-align: center; overflow: hidden;">
+                                        <div class="row">
+                                            <div class="col-md-12 text-left boxHeadingStyle" style="background-color: #f1c40f; color: white;">
+                                                Total Bill Consumption
+                                            </div>
+                                        </div>
+                                        <div class="row" style="height: 80px;">
+                                            <div class="col-md-7  text-right no-padding displayTableWithHeight">
+                                                <span class="boxSummaryValueStyle verticalMiddleAlign"><strong style="font-size: 25px;">{{numberWithCommas(powerUpgradeSummary.TotalPowerConsumptionLast)}}</strong> &nbsp; <strong style="font-size: 12px;">SGD</strong> </span>
+                                            </div>
+                                            <div class="col-md-1 text-right" style="height: 40px; margin: auto; padding-top: 22px;">
+                                                <div style="border-right: 2px solid #ccc; height: 40px; padding-left: 20px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-left">
+                                                <div class="row" style="padding-top: 10px;">
+                                                    <div class="col-md-4 text-left" style="padding-top: 10px; padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" ng-show="powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage >= 0" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                        <i class="fa fa-arrow-circle-o-down" ng-show="powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage < 0" style="font-size: 40px; color: #89C660;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-8 text-left" style="padding-top: 10px;">
+                                                        <span ng-show="powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage >= 0" style="font-size: 20px; font-weight: bold;" ng-model="increasePercentage">{{powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage}}%<br /></span>  <span ng-show="powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage >= 0" style="color: #CECED1;">Increase</span>
+
+                                                        <span ng-show="powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage < 0" style="font-size: 20px; font-weight: bold;" ng-model="decreasePercentage">{{-(powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage)}}%</span> <br /> <span ng-show="powerUpgradeSummary.TotalPowerConsumptionUpgradePercentage < 0" style="color: #CECED1;">Decrease</span>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 nopadding">
+                            <div class="info-box info-box-custom" style="">
+                                <div class="">
+                                    <div class="" style="text-align: center; overflow: hidden;">
+                                        <div class="row">
+                                            <div class="col-md-12 bg-red text-left boxHeadingStyle">
+                                                Biggest Increase
+                                            </div>
+                                        </div>
+                                        <div class="row" style="height: 80px;">
+                                            <div class="col-md-7  text-center displayTableWithHeight">
+                                                <span class="boxSummaryValueStyleBlockView verticalMiddleAlign"><strong style="font-size: 14px;">{{powerUpgradeSummary.BiggestIncreaseLastLabel}}</strong></span>
+                                            </div>
+                                            <div class="col-md-1 text-right" style="height: 40px; margin: auto; padding-top: 22px;">
+                                                <div style="border-right: 2px solid #ccc; height: 40px; padding-left: 20px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-left">
+                                                <div class="row" style="padding-top: 10px;">
+                                                    <div class="col-md-4 text-left" style="padding-top: 10px; padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" ng-show="powerUpgradeSummary.BiggestIncreaseUpgradePercentage >= 0" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                        <i class="fa fa-arrow-circle-o-down" ng-show="powerUpgradeSummary.BiggestIncreaseUpgradePercentage < 0" style="font-size: 40px; color: #89C660;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-8 text-left" style="padding-top: 10px;">
+                                                        <span ng-show="powerUpgradeSummary.BiggestIncreaseUpgradePercentage >= 0" style="font-size: 20px; font-weight: bold;" ng-model="increasePercentage">{{powerUpgradeSummary.BiggestIncreaseUpgradePercentage}}%<br /></span>  <span ng-show="powerUpgradeSummary.BiggestIncreaseUpgradePercentage >= 0" style="color: #CECED1;">Increase</span>
+
+                                                        <span ng-show="powerUpgradeSummary.BiggestIncreaseUpgradePercentage < 0" style="font-size: 20px; font-weight: bold;" ng-model="decreasePercentage">{{-(powerUpgradeSummary.BiggestIncreaseUpgradePercentage)}}%</span> <br /> <span ng-show="powerUpgradeSummary.BiggestIncreaseUpgradePercentage < 0" style="color: #CECED1;">Decrease</span>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 nopadding">
+
+                            <div class="info-box info-box-custom" style="">
+                                <div class="">
+                                    <div class="" style="text-align: center; overflow: hidden;">
+                                        <div class="row">
+                                            <div class="col-md-12 bg-green text-left boxHeadingStyle">
+                                                Biggest Decrease
+                                            </div>
+                                        </div>
+                                        <div class="row" style="height: 80px;">
+                                            <div class="col-md-7  text-center displayTableWithHeight">
+                                                <span class="boxSummaryValueStyleBlockView verticalMiddleAlign"><strong style="font-size: 14px;">{{powerUpgradeSummary.BiggestDecreaseLastLabel}}</strong></span>
+                                            </div>
+                                            <div class="col-md-1 text-right" style="height: 40px; margin: auto; padding-top: 22px;">
+                                                <div style="border-right: 2px solid #ccc; height: 40px; padding-left: 20px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-left">
+                                                <div class="row" style="padding-top: 10px;">
+                                                    <div class="col-md-4 text-left" style="padding-top: 10px; padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" ng-show="powerUpgradeSummary.BiggestDecreaseUpgradePercentage >= 0" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                        <i class="fa fa-arrow-circle-o-down" ng-show="powerUpgradeSummary.BiggestDecreaseUpgradePercentage < 0" style="font-size: 40px; color: #89C660;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-8 text-left" style="padding-top: 10px;">
+                                                        <span ng-show="powerUpgradeSummary.BiggestDecreaseUpgradePercentage >= 0" style="font-size: 20px; font-weight: bold;" ng-model="increasePercentage">{{powerUpgradeSummary.BiggestDecreaseUpgradePercentage}}%<br /></span>  <span ng-show="powerUpgradeSummary.BiggestDecreaseUpgradePercentage >= 0" style="color: #CECED1;">Increase</span>
+
+                                                        <span ng-show="powerUpgradeSummary.BiggestDecreaseUpgradePercentage < 0" style="font-size: 20px; font-weight: bold;" ng-model="decreasePercentage">{{-(powerUpgradeSummary.BiggestDecreaseUpgradePercentage)}}%</span> <br /> <span ng-show="powerUpgradeSummary.BiggestDecreaseUpgradePercentage < 0" style="color: #CECED1;">Decrease</span>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <div class="col-md-12" style="padding: 0 !important; margin: 0 !important; display: inline-block;">
+                            <div class="chart-box" style="min-height: 400px; text-align: center; display: inline-block;">
+                                <div id="armpowerconsumptioncomparison" class="highchartZoom" style="min-height: 400px; width: 99%; text-align: center; display: inline-block; "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

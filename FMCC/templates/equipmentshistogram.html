@@ -1,0 +1,120 @@
+﻿<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="box-title">Equipment Histogram({{equipmentHistogram.timerange}})</h3>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="box-tools pull-right" style="float:right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                            <div>
+                                <select id="type-selector" ng-model="equipmenttype" class="report-select" style="width:120px">
+                                    <option value="all">All</option>
+                                    <option value="ok">Without Alert</option>
+                                    <option value="faulty">With Alert</option>
+                                </select>
+                            </div>
+                            <!--<div>
+                                <select id="type-selector" ng-model="objectId" class="report-select" style="">
+                                    <option value="all">All</option>
+                                </select>
+                            </div>-->
+                            <div>
+                                <select id="block-selector" ng-model="block" class="report-select" style="width:140px">
+                                    <option value="-1">Overall</option>
+                                    <option ng-repeat="block in blockesList" value={{block.Id}}>{{block.Name}}</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button ng-click="nextDateSlot()" class="btn btn-secondary" style="float: right;height: 35px;border: 1px solid #d2d6de;">></button>
+                            </div>
+                            <div>
+                                <select id="date-selector" ng-model="date" class="report-select" style="width:140px">
+                                    <option value="lastweek">Last Week</option>
+                                    <option value="lastmonth">Last Month</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button ng-click="previousDateSlot()" class="btn btn-secondary" style="float: right;height: 35px;border: 1px solid #d2d6de;"><</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:10px 15px 30px;">
+                    <!--<div class="row">
+                        <div class="col-md-3 nopadding">
+                            <div class="dashboard-box">
+                                <p>{{totalPowerConsumption.timerange}}</p>
+                                <p>{{totalPowerConsumption.value}} KW</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <div class="dashboard-box">
+                                <p>No of hours over run</p>
+                                <p>{{totalOverRunHour}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <div class="dashboard-box">
+                                <p>No of equipments over run</p>
+                                <p>{{totalEquipmentOverRun}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <div class="dashboard-box">
+                                <p>Alert</p>
+                                <p>{{totalAlert}}</p>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row" style="margin-bottom:10px">
+                        <div class="col-md-12 nopadding">
+                            <div class="chart-box" style="height:450px">
+                                <div id="equipmenthistogram" style="height:98%;width:98%;text-align:center"></div>
+                                <div style="text-align:center">
+                                    <table style="margin: 0 auto;">
+                                        <tr>
+                                            <td style="padding:5px"><div style="height:15px;width:20px;background-color:green"></div></td>
+                                            <td style="padding:5px 20px 5px 0"><div style="font-size:12px;font-weight: bold;">ON</div></td>
+                                            <td style="padding:5px"><div style="height:15px;width:20px;background-color:yellow"></div></td>
+                                            <td  style="padding:5px 20px 5px 0"><div style="font-size:12px;font-weight: bold;">OFF</div></td>
+                                            <!--<td style="padding:5px"><div style="height:15px;width:20px;background-color:yellow"></div></td>
+                                            <td  style="padding:5px 20px 5px 0"><div style="font-size:12px;font-weight: bold;">Nearest</div></td>-->
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12  nopadding">
+                            <div class="table-box">
+                                <table id="alert-list" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Block</th>
+                                            <th>Title</th>
+                                            <th>Object Data field</th>
+                                            <th>Severity</th>
+                                            <th>Timestamp</th>
+                                            <th>Condition</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

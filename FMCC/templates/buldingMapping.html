@@ -1,0 +1,110 @@
+﻿<style>
+    .box.box-default {
+        border-top-color: #d2d6de;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+    }
+
+    .col-md-12.no-padding {
+        margin: 0 0 30px;
+    }
+
+
+    .btn.btn-flat.btn-primary {
+        min-width: 100px;
+    }
+</style>
+
+<section class="content">
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title"> Block Creation </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 10px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form name="powerForm" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group clearfix">
+                                            <div class="control-label">
+                                                Site
+                                            </div>
+                                            <div class="">
+                                                <select id="inputSite" class="block form-control input-sm" data-placeholder="Please select a Site">
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group clearfix">
+                                            <div class="control-label">
+                                                BuildingId
+                                            </div>
+                                            <div class="">
+                                                <input id="inputBuildingId" type="text" class="form-control input-sm" placeholder="Please enter buildingId " />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group clearfix">
+                                            <div class="control-label">
+                                                Name
+                                            </div>
+                                            <div class="">
+                                                <input id="inputBlockName" type="text" class="form-control input-sm" placeholder="Please enter block name " />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group clearfix">
+                                            <div class="control-label">
+                                                Location
+                                            </div>
+                                            <div class="">
+                                                <input id="inputLocation" type="text" class="form-control input-sm" placeholder="Please enter Location "/>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" ng-disabled="powerForm.$invalid" style="min-width:100px;" class="btn btn-sm btn-primary" ng-click="saveBuilding()">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:20px">
+                                <table id="BuildingList" class="table table-hover table-condensed table-bordered table-responsive" style="margin-top:65px;"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

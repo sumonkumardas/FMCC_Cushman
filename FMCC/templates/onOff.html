@@ -1,0 +1,168 @@
+﻿<style>
+    .box.box-default {
+        border-top-color: #d2d6de;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+    }
+
+    .col-md-12.no-padding {
+        margin: 0 0 30px;
+    }
+
+
+    .btn.btn-flat.btn-primary {
+        min-width: 100px;
+    }
+</style>
+
+<section class="content">
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title"> Equipment Mapping </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 10px;">
+                    <div class="col-md-12">
+                        <form name="powerForm" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;">
+                            <input type="hidden" id="onoffId" />
+                            <div class="row">
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Object Id
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="objectId" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Object Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" id="objectName" class="form-control input-sm" placeholder="Object name" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Data Field Id
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="dataFieldId" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Data Field Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" id="dataFieldName" class="form-control input-sm" placeholder="Object name" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Type
+                                        </div>
+                                        <div class="class="col-sm-12 no-padding control-label">
+                                            <select id="eqType" required class="form-control input-sm" data-placeholder="Please select a Type">
+                                                <option></option>
+                                                <option value="1">On/Off</option>
+                                                <option value="2">Temperature</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row thresold" hidden="hidden">
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Threshold
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" id="equThresold" class="form-control input-sm" placeholder="Please enter Thresold value">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row onoff" hidden="hidden">
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            On value
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" id="equOnValue" class="form-control input-sm" placeholder="Please enter On value">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Off value
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" id="equOffValue" class="form-control input-sm" placeholder="Please enter Off value">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 text-right">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    <button ng-click="saveOnOffObject()" style="min-width: 100px;" type="Submit" class="btn btn-sm btn-primary">Save</button>
+                                    <button ng-click="deleteOnoffObject()" style="min-width: 100px;" type="Submit" class="btn btn-sm btn-primary">Delete</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br />
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:20px">
+                                <table id="onOffObjectDataList" class="table table-hover table-condensed table-bordered table-responsive" style="margin-top:65px;"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

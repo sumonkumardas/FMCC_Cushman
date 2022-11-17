@@ -1,0 +1,318 @@
+﻿<style>
+    .col-md-12.no-padding {
+        margin: 0 0 30px;
+    }
+
+
+
+    .box-body {
+        padding: 25px 30px 10px;
+    }
+
+    .btn.btn-flat.btn-primary {
+        min-width: 100px;
+    }
+</style>
+<section class="content">
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title"> Object Setting</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <form name="obForm" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <input type="hidden" ng-model="object.Id" />
+                            <div class="col-xs-12">
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Object Id
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" ng-model="object.ObjectId" class="form-control" placeholder="Enter an object id" required="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Object Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" ng-model="object.Name" class="form-control" placeholder="Enter an object name" required="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 no-padding">
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" ng-show="object.Id != 0" ng-disabled="obForm.$invalid" class="btn btn-sm btn-primary" ng-click="updateObject()" style="min-width:100px;">Update</button>
+                                        <button type="submit" ng-show="object.Id != 0" ng-disabled="obForm.$invalid" class="btn btn-sm btn-primary" ng-click="deleteObject()" style="min-width:100px;">Delete</button>
+                                        <button type="submit" ng-show="object.Id != 0" class="btn btn-sm btn-primary" ng-click="cancelObject()" style="min-width:100px;">Cancel</button>
+                                        <button type="submit" ng-show="object.Id == 0" ng-disabled="obForm.$invalid" class="btn btn-sm btn-primary" ng-click="submitObject()" style="min-width:100px;">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive">
+                                <table id="object-data" class="table table-hover table-condensed table-bordered" style="margin-top:65px;">
+                                    <tbody>
+                                        <tr>
+                                            <th> Object </th>
+                                            <th> Name </th>
+                                            <th>  </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title">Unit Setting</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <form name="datafieldunitform" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <input type="hidden" ng-model="dataFieldUnit.Id" />
+                            <div class="col-xs-12">
+                                <div class="col-md-7 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Unit Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" ng-model="dataFieldUnit.Name" name="Id" id="inputDataFieldUnitName" class="form-control" placeholder="Enter an unit name" required="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 no-padding">
+                                    <div class="col-md-12">
+                                        <button type="submit" ng-show="dataFieldUnit.Id != 0" ng-disabled="datafieldunitform.$invalid" class="btn btn-sm btn-primary " ng-click="updateDataFieldUnit();" style="min-width:100px;">Update</button>
+                                        <button type="submit" ng-show="dataFieldUnit.Id != 0" ng-disabled="datafieldunitform.$invalid" class="btn btn-sm btn-primary" ng-click="deleteDataFieldUnit();" style="min-width:100px;">Delete</button>
+                                        <button type="submit" ng-show="dataFieldUnit.Id != 0" class="btn btn-sm btn-primary" ng-click="cancelDataFieldUnit()" style="min-width:100px;">Cancel</button>
+                                        <button type="submit" ng-show="dataFieldUnit.Id == 0" ng-disabled="datafieldunitform.$invalid" class="btn btn-sm btn-primary pull-right" ng-click="submitDataFieldUnit();" style="min-width:100px;margin-bottom:10px;">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive">
+                                <table id="data-field-unit" class="table table-hover table-condensed table-bordered" style="margin-top:65px;">
+                                    <tbody>
+                                        <tr>
+                                            <th>Unit Id</th>
+                                            <th>Unit Name</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title">Data Field Setting</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <form name="datafieldform" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <input type="hidden" ng-model="dataField.Id" />
+                            <div class="col-xs-12">
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Data Field Id
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" ng-model="dataField.DataFieldId" name="Id" id="inputDataFieldId" class="form-control" placeholder="Enter a data field id" required="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Data Field Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" ng-model="dataField.Name" name="Id" id="inputDataFieldName" class="form-control" placeholder="Enter a data field name" required="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Data Field Unit
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select type="text" id="inputDataFieldUnit" class="form-control" placeholder="Please select a unit" required="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 no-padding">
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" ng-show="dataField.Id != 0" ng-disabled="datafieldform.$invalid" class="btn btn-sm btn-primary" ng-click="updateDataField();" style="min-width:100px;">Update</button>
+                                        <button type="submit" ng-show="dataField.Id != 0" ng-disabled="datafieldform.$invalid" class="btn btn-sm btn-primary" ng-click="deleteDataField();" style="min-width:100px;">Delete</button>
+                                        <button type="submit" ng-show="dataField.Id != 0" class="btn btn-sm btn-primary" ng-click="cancelDataField()" style="min-width:100px;">Cancel</button>
+                                        <button type="submit" ng-show="dataField.Id == 0" ng-disabled="datafieldform.$invalid" class="btn btn-sm btn-primary" ng-click="submitDataField();" style="min-width:100px;">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive">
+                                <table id="data-field" class="table table-hover table-condensed table-bordered table-responsive" style="margin-top:65px;">
+                                    <tbody>
+                                        <tr>
+                                            <th>Data Field Id</th>
+                                            <th>Name</th>
+                                            <th>Unit</th>
+                                            <th>asdf</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class='box-title'> Buildng Object DataField Setting </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <form name="buildingobjectdatafieldform" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <div class='col-xs-12'>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label" style="padding-top:5px;">
+                                            Block
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select name="nSelectBuildingList" id="idSelectBuildings" class="form-control">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label" style="padding-top:5px;">
+                                            Object
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="idSelectObjectList" name="nSelectObjectListData" class="form-control">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label" style="padding-top:5px;">
+                                            Data Field
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="idSelectDatafieldData" name="nSelectDatafieldData" class="form-control">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Data Field Number
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input ng-model="buildingObjectDataField.RawDataFieldNumber" id="RawDataFieldNumber" name="RawDataFieldNumber" type="text" class="form-control" ng-keyup="keyDown($event)" placeholder="Enter data field number" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 no-padding">
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" ng-show="buildingObjectDataField.Id != 0" ng-disabled="buildingobjectdatafieldform.$invalid" class="btn btn-sm btn-primary" ng-click="updateBuildingObjectDataField();" style="min-width:100px;">Update</button>
+                                        <button type="submit" ng-show="buildingObjectDataField.Id != 0" ng-disabled="buildingobjectdatafieldform.$invalid" class="btn btn-sm btn-primary" ng-click="deleteBuildingObjectDataField();" style="min-width:100px;">Delete</button>
+                                        <button type="submit" ng-show="buildingObjectDataField.Id != 0" class="btn btn-sm btn-primary" ng-click="cancelBuildingObjectDataField();" style="min-width:100px;">Cancel</button>
+                                        <button type="submit" ng-show="buildingObjectDataField.Id == 0" ng-disabled="buildingobjectdatafieldform.$invalid" class="btn btn-sm btn-primary" ng-click="submitBuildingObjectDataField();" style="min-width:100px;">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive">
+                                <table id="object-data-field" class="table table-hover table-condensed table-bordered" style="margin-top:65px;">
+                                    <tbody>
+                                        <tr>
+                                            <th> Building </th>
+                                            <th> Object </th>
+                                            <th>Data Field </th>
+                                            <th>Data Field Number</th>
+                                            <th></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,77 @@
+﻿<style>
+    table th {
+        font-weight: normal;
+    }
+
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: #fff;
+        opacity: 1;
+    }
+</style>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box" style="margin-bottom:0px;">
+                <div class="box-header">
+                    <h3 class="box-title">External Alarm List</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="">
+                                From Time
+                            </div>
+                            <div class="">
+                                <input type="text" id="startDateTime" class="form-control" placeholder="From Time " />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="">
+                                To Time
+                            </div>
+                            <div class="">
+                                <input type="text" id="endDateTime" class="form-control" placeholder="To Time" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="">
+                                Block
+                            </div>
+                            <div class="">
+                                <select id="alertRuleSetupBlock" class="block form-control input-group" data-placeholder="Please select a block">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <input type="submit" value="Submit" ng-click="search()" class="btn btn-sm btn-primary" style="min-width:100px;" />
+                    </div>
+                    <div class="col-md-12 table-responsive" style="margin-top:20px;">
+                        <table id="alarm-list" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Site Name</th>
+                                    <th>Status</th>
+                                    <th>Prev.Status</th>
+                                    <th>ITQF</th>
+                                    <th>Category</th>
+                                    <th>Acknowledge</th>
+                                    <th>Time Stamp</th>
+                                    <th>FMCC Status</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>

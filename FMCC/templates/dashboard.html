@@ -1,0 +1,269 @@
+﻿<section class="content-header">
+    <h1>
+        Dashboard<small>({{siteName}})</small>
+    </h1>
+</section>
+<section class="content" style="padding-bottom: 0;">
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-bank (alias)"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Water Usage</span>
+                <span class="info-box-number"> {{water.usage}} <small id="waterUnitName"></small></span>
+                <a href="javascript:void(0)" ng-click="water.more()" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa  fa-industry"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Power Usage</span>
+                <span class="info-box-number"> {{power.usage}} <small id="powerUnitName"></small></span>
+                <a href="javascript:void(0)" ng-click="power.more()" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix visible-sm-block"></div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-building"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">External Alarms</span>
+                <span class="info-box-number">{{alarm.count}} <small></small></span>
+                <a href="javascript:void(0)" ng-click="loadalarm()" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-comments"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Internal Alarms</span>
+                <span class="info-box-number">{{alert}}</span>
+                <a href="javascript:void(0)" ng-click="alarm.more()" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-ng-repeat="block in blocks">
+        <div class="box box-widget widget-user" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
+            <div class="widget-user-header bg-aqua-active clearfix">
+                <h3 class="widget-user-username">{{block.Name}}</h3>
+            </div>
+            <div class="widget-user-image" style="top: 55px;">
+                <img class="img-circle" data-ng-src="{{block.Image}}" alt="img">
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-xs-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header"><small><b> {{block.Water}} </b></small><small>m<sup>3</sup></small></h5>
+                            <span class="description-text">WATER</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="description-block">
+                            <h5 class="description-header"><small><b> {{block.Power}} </b></small><small>kw</small></h5>
+                            <span class="description-text">POWER</span>
+                        </div>
+                        <a href="javascript:void(0)" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    </style>
+<div class="row" ng-show="details=='consumption'">
+    <div class="col-xs-12" style="margin-bottom: 15px;">
+        <div class="box" style="margin-bottom: 0px;">
+            <div class="box-header">
+                <h3 class="box-title">Overall {{view.title}}</h3>
+            </div>
+            <div class="box-body" style="padding: 30px 30px 20px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="nav-tabs-custom" style="cursor: move;">
+                            <ul class="nav nav-pills" style="margin-bottom: 15px;">
+                                <li class="period-type pull-left" role="presentation">
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-default" ng-click='menu.changeOffset($event,false)' data-menu="1"><i class="fa fa-angle-left"></i> </button>
+
+                                    </div>
+                                </li>
+                                <li><h4 id="navDate"></h4></li>
+                                <li>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-default" ng-click='menu.changeOffset($event,true)' data-menu="1"> <i class="fa fa-angle-right"></i></button>
+                                    </div>
+                                </li>
+                                <li class="pull-right active default-active">
+                                    <a href="javascript:void(0)" ng-click="menu.select($event)" data-period="0">Hourly</a>
+                                </li>
+                                <li class="pull-right">
+                                    <a href="javascript:void(0)" ng-click="menu.select($event)" data-period="1">Weekly</a>
+                                </li>
+                                <li class="pull-right">
+                                    <a href="javascript:void(0)" ng-click="menu.select($event)" data-period="2">Monthly</a>
+                                </li>
+                                <li class="pull-right">
+                                    <a href="javascript:void(0)" ng-click="menu.select($event)" data-period="3">Yearly</a>
+                                </li>
+                            </ul>
+                            <div class="col-md-8" style="margin-bottom: 15px;">
+                                <div class="loading-mask" style="display: block;"></div>
+                                <div class="tab-content" style="height: 480px; padding: 25px 0px 0px; overflow-x: auto;">
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="padding-right: 0; padding-left: 30px;">
+                                <div class="info-box bg-yellow">
+                                    <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Total</span>
+                                        <span class="info-box-number"><small>{{info.total || "..."}}</small> <small>{{view.unit}}<sup>{{view.sup}}</sup></small></span>
+                                        <div class="progress">
+                                        </div>
+                                        <span class="progress-description" style="font-size: 8px;"> <small>{{info.totalCompare || "..."}}</small></span>
+                                    </div>
+                                </div>
+                                <div class="info-box bg-aqua">
+                                    <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Forecast</span>
+                                        <span class="info-box-number"><small>{{info.forecast || "..."}}</small> <small>{{view.unit}}<sup>{{view.sup}}</sup></small></span>
+                                        <div class="progress">
+                                        </div>
+                                        <span class="progress-description" style="font-size: 8px;"> <small>{{info.forcastCompare || "..."}}</small></span>
+                                    </div>
+                                </div>
+                                <div class="info-box bg-green">
+                                    <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Most Efficient</span>
+                                        <span class="info-box-number"><small>{{info.maximum.Value || "..."}}</small></span>
+                                        <div class="progress">
+                                        </div>
+                                        <span class="progress-description">{{info.maximum.BuildingId || "..."}}</span>
+                                    </div>
+                                </div>
+                                <div class="info-box bg-red">
+                                    <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Least Efficient</span>
+                                        <span class="info-box-number"><small>{{info.minimum.Value || "..."}}</small></span>
+                                        <div class="progress">
+                                        </div>
+                                        <span class="progress-description">{{info.minimum.BuildingId || "..."}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row individual-charts">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="details=='alarm'">
+    <div class="col-xs-12" style="margin-bottom: 15px;">
+        <div class="box" style="margin-bottom: 0px;">
+            <div class="box-header">
+                <h3 class="box-title">External Alarm List</h3>
+            </div>
+            <div class="box-body" style="padding: 1px;">
+                <div id="alarm-list" class="col-md-12 table-responsive" style="margin-top: 5px;">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Site Name</th>
+                            <th>Status</th>
+                            <th>Previous</th>
+                            <th>Itqf</th>
+                            <th>Category</th>
+                            <th>Acknowledge</th>
+                            <th>Time Stamp</th>
+                            <th>FMCC Status</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="details=='alert'">
+    <div class="col-xs-12" style="margin-bottom: 15px;">
+        <div class="box" style="margin-bottom: 0px;">
+            <div class="box-header">
+                <h3 class="box-title">Internal Alarm List</h3>
+            </div>
+            <div class="box-body" style="padding: 1px;">
+                <div id="alert-list" class="col-md-12 table-responsive" style="margin-top: 5px;">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Block</th>
+                            <th>Severity</th>
+                            <th>Current Value</th>
+                            <th>Reference Value</th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                            <th>FMCC Status</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin-top: 10px;margin-bottom: 50px;border: 1px solid #CDCDCD;height: 380px;width: 99.3%;margin-left: 6px;">
+                    <div class="col-md-3">
+                        <h1 style="margin:10px;font-weight: bold;">DB 2-32</h1>
+                        <img style="margin-left:7px;height:300px" src="../../images/box.png">
+                    </div>
+                    <div class="col-md-3">
+                        <div style="margin-top:50px">
+                            <div><span style="font-weight: bold;">Brand:&nbsp;</span><span style="color:#00B0F0">ABC</span></div>
+                            <div><span style="font-weight: bold;">Model:&nbsp;</span><span style="color:#00B0F0">MCB 32571 </span></div>
+                            <div><span style="font-weight: bold;">Date of Installation:&nbsp;</span><span style="color:#00B0F0">01-12-1999</span></div>
+                        </div>
+                        <div style="margin-top:20px">
+                            <button class="btn btn-info" style="width: 200px;margin: 10px 0 5px 0;background-color:#00B0F0" onclick="window.open('../../Documents/operating-procedure.pdf');">Operating Procedures</button>
+                            <button class="btn btn-info" style="width: 200px;margin: 5px 0 5px 0;background-color:#00B0F0" onclick="window.open('../../Documents/troubleshooting-guid.pdf');">Troubleshooting Guide</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 style="margin: 10px 0 10px 20px;font-weight: bold;">Floor Plan</h1>
+                        <img style="margin:auto auto;height:300px" src="../../images/floor.png">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿ <style>
+    .nav > li > a {
+        display: block;
+        padding: 10px 10px;
+        position: relative;
+    }
+</style>
+<section class="content-header">
+    <h1>{{ view.title }}</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">{{ view.title }}</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-inbox"></i> Overall</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding: 30px 30px 20px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="nav-tabs-custom" style="cursor: move;">
+                                <ul class="nav nav-tabs pull-right" style="margin-bottom:15px;">
+                                    <li class="period-type active">
+                                        <a class="text-center" href="javascript:void(0)" style="padding-left:8px;padding-right:8px;" data-ng-click="type.select($event,'sofartoday')">Hourly</a>
+                                    </li>
+                                    <li class="period-type">
+                                        <a class="text-center" href="javascript:void(0)" style="padding-left:8px;padding-right:8px;" data-ng-click="type.select($event,'sofarthisweek')">Weekly</a>
+                                    </li>
+                                    <li class="period-type">
+                                        <a class="text-center" href="javascript:void(0)" style="padding-left:8px;padding-right:8px;" data-ng-click="type.select($event,'sofarthismonth')">Monthly</a>
+                                    </li>
+                                    <li class="period-type">
+                                        <a class="text-center" href="javascript:void(0)" style="padding-left:8px;padding-right:8px;" data-ng-click="type.select($event,'sofarthisyear')">Yearly</a>
+                                    </li>
+                                    <li class="period-type" style="display:none;">
+                                        <a class="text-center" href="javascript:void(0)" data-ng-click="type.select($event,'yearly')">Monthly</a>
+                                    </li>
+                                </ul>
+                                <div class="col-md-8" style="margin-bottom:15px;">
+                                    <div class="tab-content" style="height: 480px; padding: 25px 0px 0px;overflow-x:auto;">
+                                        <div class="loading-mask" style="display:block;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="padding-right: 0;padding-left:30px;">
+                                    <div class="info-box bg-yellow">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Total</span>
+                                            <span class="info-box-number"><small>{{info.total || "..."}}</small> <small>{{view.unit}}<sup>{{view.sup}}</sup></small></span>
+                                            <div class="progress">
+                                            </div>
+                                            <span class="progress-description" style="font-size:8px;"> <small>{{info.totalCompare || "..."}}</small></span>
+                                        </div>
+                                    </div>
+                                    <div class="info-box bg-aqua">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Forcast</span>
+                                            <span class="info-box-number"><small>{{info.forecast || "..."}}</small> <small>{{view.unit}}<sup>{{view.sup}}</sup></small></span>
+                                            <div class="progress">
+                                            </div>
+                                            <span class="progress-description" style="font-size:8px;"> <small>{{info.forcastCompare || "..."}}</small></span>
+                                        </div>
+                                    </div>
+                                    <div class="info-box bg-green">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Most Efficient</span>
+                                            <span class="info-box-number"><small>{{info.maximum.Value || "..."}}</small></span>
+                                            <div class="progress">
+                                            </div>
+                                            <span class="progress-description">{{info.maximum.BuildingId || "..."}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-box bg-red">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Least Efficient</span>
+                                            <span class="info-box-number"><small>{{info.minimum.Value || "..."}}</small></span>
+                                            <div class="progress">
+                                            </div>
+                                            <span class="progress-description">{{info.minimum.BuildingId || "..."}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row individual-charts">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

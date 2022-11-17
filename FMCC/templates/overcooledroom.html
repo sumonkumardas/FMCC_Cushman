@@ -1,0 +1,106 @@
+﻿<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="box-title">Over Cooled Room({{totalAffectedDayCount.timerange}})</h3>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="box-tools pull-right" style="float:right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                            <div>
+                                <select id="block-selector" ng-model="block" class="report-select" style="">
+                                    <option value="-1">Overall</option>
+                                    <option ng-repeat="block in blockesList" value={{block.Id}}>{{block.Name}}</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button ng-click="nextDateSlot()" class="btn btn-secondary" style="float: right;height: 35px;border: 1px solid #d2d6de;">></button>
+                            </div>
+                            <div>
+                                <select id="date-selector" ng-model="date" class="report-select">
+                                    <option value="lastweek">Last Week</option>
+                                    <option value="lastmonth">Last Month</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button ng-click="previousDateSlot()" class="btn btn-secondary" style="float: right;height: 35px;border: 1px solid #d2d6de;"><</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:10px 15px 30px;">
+                    <div class="row" id="overCooledStatistics">
+                        <div class="col-md-3 nopadding">
+                            <div class="info-box info-box-custom" style="">
+                                <span class="info-box-icon bg-aqua"><i class="fa fa-calculator"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">No of days <br/>threshold breached</span>
+                                    <span class="info-box-number"> {{totalAffectedDayCount.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <div class="info-box info-box-custom" style="">
+                                <span class="info-box-icon bg-green"><i class="fa fa-hand-o-down"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Lowest</span>
+                                    <span class="info-box-number"> ({{lowestTemperatureRecorded}})</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <div class="info-box info-box-custom" style="">
+                                <span class="info-box-icon bg-blue"><i class="fa fa-list-ol"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">No of Equipment <br/>Recorded Below Threshold</span>
+                                    <span class="info-box-number"> {{totalBelowThresholdEquipment}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <div class="info-box info-box-custom" style="">
+                                <span class="info-box-icon bg-red"><i class="fa fa-bell"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Alert</span>
+                                    <span class="info-box-number"> {{totalAlert}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <div id="loadingSpineArea"></div>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12  nopadding">
+                            <div class="table-box">
+                                <table id="alert-list" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Block</th>
+                                            <th>Title</th>
+                                            <th>Object Data field</th>
+                                            <th>Severity</th>
+                                            <th>Timestamp</th>
+                                            <th>Condition</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

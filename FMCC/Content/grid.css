@@ -1,0 +1,180 @@
+/*
+  Basic Grid System
+  By: 47digits.com
+  Version: 1.2.2
+*/
+
+
+/* CSS Reset ------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	*vertical-align:middle;
+}
+
+/* HTML5 display-role reset for older browsers */
+article ,aside, details, figcaption, figure, footer, header, hgroup, main,menu, nav, section, summary{display:block}
+
+table {border-collapse: collapse;border-spacing: 0;}
+:focus {outline:0 !important;}
+caption, th, td {font-weight:normal;text-align:left;}
+img {vertical-align:middle;}
+a img {border:0;}
+i, em {font-style:italic;}
+b, strong {font-weight:bold;}
+* {
+	margin:0;
+	padding:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+*::after, *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+small {
+	font-size:65%;
+}
+/* end Reset ------------*/
+
+
+/* The CSS Grid */
+.row {
+  margin-left:-10px;
+  margin-right:-10px;
+  *zoom: 1;
+}
+.col, .cols {
+  padding-left:10px;
+  padding-right:10px;
+  min-height: 1px;
+}
+.row, .col, .cols,  
+.col:before, .col:after, 
+.cols:before, .cols:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.row:before, .row:after, 
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.row:after, .clearfix:after {
+  clear: both;
+}
+
+/* Tablet Portrait */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .twelve-sm.cols, .eleven-sm.cols, .ten-sm.cols, 
+  .nine-sm.cols, .eight-sm.cols, .seven-sm.cols, 
+  .six-sm.cols, .five-sm.cols, .four-sm.cols,
+  .three-sm.cols, .two-sm.cols, .one-sm.cols {float: left;}
+  
+  .twelve-sm.col, .twelve-sm.cols {width: 100%;}
+  .eleven-sm.col, .eleven-sm.cols {width: 91.66666667%;}
+  .ten-sm.col, .ten-sm.cols {width: 83.33333333%;}
+  .nine-sm.col, .nine-sm.cols {width: 75%;}
+  .eight-sm.col, .eight-sm.cols {width: 66.66666667%;}
+  .seven-sm.col, .seven-sm.cols {width: 58.33333333%;}
+  .six-sm.col, .six-sm.cols {width: 50%;}
+  .five-sm.col, .five-sm.cols {width: 41.66666667%;}
+  .four-sm.col, .four-sm.cols {width: 33.33333333%;}
+  .three-sm.col, .three-sm.cols {width: 25%;}
+  .two-sm.col, .two-sm.cols {width: 16.66666667%;}
+  .one-sm.col, .one-sm.cols {width: 8.33333333%;}
+  
+  .push-twelve-sm {margin-left: 100%;}
+  .push.eleven-sm {margin-left: 91.66666667%;}
+  .push-ten-sm {margin-left: 83.33333333%;}
+  .push-nine-sm {margin-left: 75%;}
+  .push-eight-sm {margin-left: 66.66666667%;}
+  .push-seven-sm {margin-left: 58.33333333%;}
+  .push-six-sm {margin-left: 50%;}
+  .push-five-sm {margin-left: 41.66666667%;}
+  .push-four-sm {margin-left: 33.33333333%;}
+  .push-three-sm {margin-left: 25%;}
+  .push-two-sm {margin-left: 16.66666667%;}
+  .push-one-sm {margin-left: 8.33333333%;}
+  .push-zero-sm {margin-left: 0;} 
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 992px){
+  .twelve.cols, .eleven.cols, .ten.cols, 
+  .nine.cols, .eight.cols, .seven.cols, 
+  .six.cols, .five.cols, .four.cols,
+  .three.cols, .two.cols, .one.cols {float: left;}
+
+  .twelve.cols {width: 100%;}
+  .eleven.cols {width: 91.66666667%;}
+  .ten.cols {width: 83.33333333%;}
+  .nine.cols {width: 75%;}
+  .eight.cols {width: 66.66666667%;}
+  .seven.cols {width: 58.33333333%;}
+  .six.cols {width: 50%;}
+  .five.cols {width: 41.66666667%;}
+  .four.cols {width: 33.33333333%;}
+  .three.cols {width: 25%;}
+  .two.cols {width: 16.66666667%;}
+  .one.col, .one.cols {width: 8.33333333%;}
+  
+  .push-twelve {margin-left: 100%;}
+  .push.eleven {margin-left: 91.66666667%;}
+  .push-ten {margin-left: 83.33333333%;}
+  .push-nine {margin-left: 75%;}
+  .push-eight {margin-left: 66.66666667%;}
+  .push-seven {margin-left: 58.33333333%;}
+  .push-six {margin-left: 50%;}
+  .push-five {margin-left: 41.66666667%;}
+  .push-four {margin-left: 33.33333333%;}
+  .push-three {margin-left: 25%;}
+  .push-two {margin-left: 16.66666667%;}
+  .push-one {margin-left: 8.33333333%;}
+  .push-zero {margin-left: 0;}
+}
+
+
+/* Large Desktop */
+@media only screen and (min-width: 1280px) {
+  .twelve-lg.cols, .eleven-lg.cols, .ten-lg.cols, 
+  .nine-lg.cols, .eight-lg.cols, .seven-lg.cols, 
+  .six-lg.cols, .five-lg.cols, .four-lg.cols,
+  .three-lg.cols, .two-lg.cols, .one-lg.cols {float: left;}
+  
+  .twelve-lg.col, .twelve-lg.cols {width: 100%;}
+  .eleven-lg.col, .eleven-lg.cols {width: 91.66666667%;}
+  .ten-lg.col, .ten-lg.cols {width: 83.33333333%;}
+  .nine-lg.col, .nine-lg.cols {width: 75%;}
+  .eight-lg.col, .eight-lg.cols {width: 66.66666667%;}
+  .seven-lg.col, .seven-lg.cols {width: 58.33333333%;}
+  .six-lg.col, .six-lg.cols {width: 50%;}
+  .five-lg.col, .five-lg.cols {width: 41.66666667%;}
+  .four-lg.col, .four-lg.cols {width: 33.33333333%;}
+  .three-lg.col, .three-lg.cols {width: 25%;}
+  .two-lg.col, .two-lg.cols {width: 16.66666667%;}
+  .one-lg.col, .one-lg.cols {width: 8.33333333%;}
+  
+  .push-twelve-lg {margin-left: 100%;}
+  .push.eleven-lg {margin-left: 91.66666667%;}
+  .push-ten-lg {margin-left: 83.33333333%;}
+  .push-nine-lg {margin-left: 75%;}
+  .push-eight-lg {margin-left: 66.66666667%;}
+  .push-seven-lg {margin-left: 58.33333333%;}
+  .push-six-lg {margin-left: 50%;}
+  .push-five-lg {margin-left: 41.66666667%;}
+  .push-four-lg {margin-left: 33.33333333%;}
+  .push-three-lg {margin-left: 25%;}
+  .push-two-lg {margin-left: 16.66666667%;}
+  .push-one-lg {margin-left: 8.33333333%;}
+  .push-zero-lg {margin-left: 0;} 
+}
+

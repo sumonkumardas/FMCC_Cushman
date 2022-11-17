@@ -1,0 +1,145 @@
+﻿
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-user-plus"></i>
+                    <h3 class="box-title">Users</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 40px;">
+                    <div class="row">
+                        <form novalidate="novalidate" name="userForm" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <input type="hidden" ng-model="user.Id" />
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div style="display:inline-block;border:1px solid #eee;height:100px;width:100px;">
+                                            <img id="preview" src="/images/users/user.png" style="width:100px;height:100px;" />
+                                        </div>
+                                        <div class="no-padding">
+                                            <div class="btn btn-sm btn-flat btn-default text-left" style="min-width:100px;cursor:pointer;" ng-click="uploadPhoto()"> <span class="fa fa-file-image-o"> </span> <span id="filebrowser"> Browse </span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Full Name
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="Full Name" ng-model="user.fullname" type="text" class="form-control" value="" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Email
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="Email" ng-model="user.email" type="email" class="form-control" value="" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            User Name
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="User Name" ng-model="user.username" type="text" value="" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Password
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="Password" ng-model="user.password" type="password" value="" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Designation
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="Designation" ng-model="user.designation" type="text" value="" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Mobile No
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="Mobile No" ng-model="user.mobile" type="text" name="mobileno" value="" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label">
+                                            Phone No
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <input autocomplete="off" placeholder="Phone No" ng-model="user.phone" type="text" name="phone" value="" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="text-right">
+                                            <button ng-show="user.Id > 0" ng-disabled="userForm.$invalid" ng-click="updateUser(userForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Update</button>
+                                            <button ng-show="user.Id > 0" ng-disabled="userForm.$invalid" ng-click="deleteUser(userForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Delete</button>
+                                            <button ng-show="user.Id > 0" ng-click="cancelUser(userForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Cancel</button>
+                                            <button ng-show="user.Id == 0" ng-disabled="userForm.$invalid" ng-click="setUser(userForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:65px;">
+                                <table id="users" class="table table-hover table-condensed table-bordered table-responsive"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

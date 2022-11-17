@@ -1,0 +1,101 @@
+﻿<style>
+    table th {
+        font-weight: normal;
+    }
+
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: #fff;
+        opacity: 1;
+    }
+</style>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title">Internal Alarm List</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="">
+                                From Time
+                            </div>
+                            <div class="">
+                                <input type="text" id="startDateTime" class="form-control" placeholder="From Time " />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="">
+                                To Time
+                            </div>
+                            <div class="">
+                                <input type="text" id="endDateTime" class="form-control" placeholder="To Time" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group clearfix">
+                            <div class="">
+                                Alert Rule
+                            </div>
+                            <div class="">
+                                <select id="alertRule" class="block form-control input-group" data-placeholder="Please select a Rule">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group clearfix">
+                            <div class="">
+                                Block
+                            </div>
+                            <div class="">
+                                <select id="alertRuleSetupBlock" class="block form-control input-group" data-placeholder="Please select a block">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 text-right">
+                        <input type="submit" value="Submit" ng-click="search()" class="btn btn-sm btn-primary" style="min-width:100px;" />
+                    </div>
+                    <div class="col-md-12 table-responsive" style="margin-top:20px;">
+                        <table id="alert-list" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Block</th>
+                                    <th>Type</th>
+                                    <th>Current Value</th>
+                                    <th>Reference Value</th>
+                                    <th>Severity</th>
+                                    <th>To Date</th>
+                                    <th>FMCC Status</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+
+    </div>
+
+
+
+</section>

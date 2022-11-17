@@ -1,0 +1,72 @@
+﻿<div class="content">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1 style="display: none;">
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row margin-bottom" style="display: none;">
+            <div class="col-lg-3 col-md-4 col-sm-4" style="display: none;">
+                <label for="ddlAlertType">Alert Type</label>
+                <select id="ddlAlertType" class="dropdown">
+                    <option value="All">All(21)</option>
+                    <option value="Minor">Minor(1)</option>
+                    <option value="Major">Major(0)</option>
+                    <option value="Critical">Critical(0)</option>
+                    <option value="Healthy">Healthy(20)</option>
+                </select>
+            </div>
+            <div class="col-lg-6 col-md-4 col-sm-4">
+
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 text-right">
+                <!--<button class="btn btn-primary">Table View</button>
+            <button class="btn btn-primary">Map View</button>-->
+            </div>
+        </div>
+        <!-- Small boxes (Stat box) -->
+        <!--<div class="row">
+            <div class="col-lg-3 col-xs-6" ng-repeat="site in siteList">
+                <div class="box box-widget widget-user">
+                    <div class="widget-user-header bg-aqua-active">
+                        <h3 class="widget-user-username">{{site.Name}}</h3>
+                    </div>
+                    <div class="widget-user-image">
+                        <img src="{{site.ImageLocation}}" width="100%" height="100%" alt="{{site.Name}}">
+                    </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-sm-6 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">150 m3</h5>
+                                    <span class="description-text">WATER</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="description-block">
+                                    <h5 class="description-header">59 kW</h5>
+                                    <span class="description-text">POWER</span>
+                                </div>
+                                <a href="block111.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- /.row -->
+        <div class="row">
+            <div class="gmap-view" style="margin-top: 20px">
+                <div id="map" style="width: 100%; height: 80vh;" ng-init="GenerateMap(); CreateCircle()"></div>
+            </div>
+        </div>
+
+    </section>
+    <!-- /.content -->
+</div>

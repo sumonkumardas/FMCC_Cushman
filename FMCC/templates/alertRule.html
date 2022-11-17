@@ -1,0 +1,70 @@
+﻿<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="padding-top:15px;">
+            <div class="panel box box-default">
+                <div class="box-header with-border">
+                    <i class="fa fa-user-plus"></i>
+                    <h3 class="box-title">Menu Authentication Setting</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12 no-padding" style="padding-top:20px;">
+                        <div class="col-md-6">
+                            <div>User Role</div>
+                            <select class="role-form-elem form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <div>Module</div>
+                            <select class="module-form-elem form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-sm btn-primary" style="min-width:100px;margin-top:15px;margin-bottom:15px;" ng-click="loadMenuItem()"> Load </button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-12 table-responsive no-padding clearfix" ng-show="menuList.length">
+                            <style>
+                                table th:first-of-type {
+                                    width: 60px;
+                                }
+                            </style>
+                            <table class="table table-bordered table-hover table-condensed">
+                                <tr>
+                                    <th class="text-center"></th>
+                                    <th>Menu</th>
+                                    <th>Url</th>
+                                </tr>
+                                <tr ng-repeat="item in menuList">
+                                    <td ng-if="$index==0" class="text-center" ng-click="SetChecked(item,menuList)" style="cursor:pointer;">
+                                        <i ng-if="!item.IsAuthorized" class="fa fa-fw fa-square-o"></i>
+                                        <i ng-if="item.IsAuthorized" class="fa fa-fw fa-check-square-o"></i>
+                                    </td>
+                                    <td ng-if="$index==0"> {{item.MenuItem}} </td>
+                                    <td ng-if="$index==0"> {{item.Url}} </td>
+                                    <td ng-if="$index>0" class="text-center" ng-click="SetChecked(item,menuList)" style="cursor:pointer;">
+                                        <i ng-if="!item.IsAuthorized" class="fa fa-fw fa-square-o"></i>
+                                        <i ng-if="item.IsAuthorized" class="fa fa-fw fa-check-square-o"></i>
+                                    </td>
+                                    <td ng-if="$index>0"> {{item.MenuItem}} </td>
+                                    <td ng-if="$index>0"> {{item.Url}} </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-12 no-padding text-right clearfix" ng-show="menuList.length">
+                            <button class="btn btn-sm btn-primary" style="min-width:100px;margin-bottom: 20px" ng-click="SaveMenuItem(menuList)"> Save </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,165 @@
+﻿<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Comparison</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="type-selector" style="float:left;margin:10px 5px 0 0;">Comparison Type:</label>
+                                <select id="type-selector" ng-model="dropdown.comparisonType" class="report-select form-control input-sm" style="float:right;width:300px;margin-right:50px">
+                                    <option ng-repeat="copm in comparisonType" value={{copm}} >{{copm}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label for="block-selector" style="float:left;margin:10px 5px 0 0;">Block:</label>
+                                <select id="block-selector" ng-model="dropdown.block" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                    <option ng-repeat="block in blockesList" value={{block.Id}}>{{block.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Object datafield for all-->
+                    <div ng-show="commonObjectDataField" class="row" style="margin-top:10px">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="object-selector" style="float:left;margin:10px 5px 0 0;">Object:</label>
+                                <select id="object-selector" ng-model="dropdown.object" ng-change="loadObject()" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                    <option ng-repeat="obj in objectList" value={{obj.Id}}>{{obj.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label for="datafield-selector" style="float:left;margin:10px 5px 0 0;">Data Point:</label>
+                                <select id="datafield-selector" ng-model="dropdown.datafield" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                    <option ng-repeat="datafield in datafieldList1" value={{datafield.Id}}>{{datafield.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Object datafield for two datapoint-->
+                    <div ng-show="twoDataPointObjectDataField">
+                        <div class="row" style="margin-top:10px">
+                            <div class="col-md-6">
+                                <div>
+                                    <label for="object1-selector" style="float:left;margin:10px 5px 0 0;">Object One:</label>
+                                    <select id="object1-selector" ng-model="dropdown.object1" ng-change="loadObject1()" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                        <option ng-repeat="obj in objectList" value={{obj.Id}}>{{obj.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <label for="datefiel1-selector" style="float:left;margin:10px 5px 0 0;">Data Point One:</label>
+                                    <select id="datefiel1-selector" ng-model="dropdown.datafield1" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                        <option ng-repeat="datafield in datafieldList2" value={{datafield.Id}}>{{datafield.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col-md-6">
+                                <div>
+                                    <label for="object2-selector" style="float:left;margin:10px 5px 0 0;">Object Two:</label>
+                                    <select id="object2-selector" ng-model="dropdown.object2" ng-change="loadObject2()" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                        <option ng-repeat="obj in objectList" value={{obj.Id}}>{{obj.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <label for="datapoint2-selector" style="float:left;margin:10px 5px 0 0;">Data Point Two:</label>
+                                    <select id="datapoint2-selector" ng-model="dropdown.datafield2" class="report-select" style="float:right;width:300px;margin-right:50px">
+                                        <option ng-repeat="datafield in datafieldList3" value={{datafield.Id}}>{{datafield.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--day to day selector-->
+                    <div ng-show="daytoday" class="row" style="margin-top:10px">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="date-one" style="float:left;margin:10px 5px 0 0;">Day One:</label>
+                                <input type="text" id="date-one" class="report-select" style="float:right;width:300px;margin-right:50px" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label for="date-two" style="float:left;margin:10px 5px 0 0;">Day Two:</label>
+                                <input type="text" id="date-two" class="report-select" style="float:right;width:300px;margin-right:50px" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--week to week selector-->
+                    <div ng-show="weektoweek" class="row" style="margin-top:10px">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="week-daterange1" style="float:left;margin:10px 5px 0 0;">Week Range One:</label>
+                                <input type="text" id="week-daterange1" class="report-select" style="float:right;width:300px;margin-right:50px"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label for="week-daterange2" style="float:left;margin:10px 5px 0 0;">Week Range Two:</label>
+                                <input type="text" id="week-daterange2" class="report-select" style="float:right;width:300px;margin-right:50px" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--month to month selector-->
+                    <div ng-show="monthtomonth" class="row" style="margin-top:10px">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="month-daterange1" style="float:left;margin:10px 5px 0 0;">Month Range One:</label>
+                                <input type="text" id="month-daterange1" class="report-select" style="float:right;width:300px;margin-right:50px" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label for="month-daterange2" style="float:left;margin:10px 5px 0 0;">Month Range Two:</label>
+                                <input type="text" id="month-daterange2" class="report-select" style="float:right;width:300px;margin-right:50px" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--two datapoint daterange-->
+                    <div ng-show="towDataPointDate" class="row" style="margin-top:10px">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="twodatapoint-daterange" style="float:left;margin:10px 5px 0 0;">Date Ramge:</label>
+                                <input type="text" id="twodatapoint-daterange" class="report-select" style="float:right;width:300px;margin-right:50px" />
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <button class="btn btn-primary" ng-click="compare()">Apply</button>
+
+                    <div class="row">
+                        <div class="col-md-12 nopadding">
+                            <div class="chart-box" style="height:400px">
+                                <div id="comparison" style="height:98%;width:98%;text-align:center"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

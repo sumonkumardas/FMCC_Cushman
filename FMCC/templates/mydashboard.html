@@ -1,0 +1,339 @@
+﻿<div class="content" style="background-color: #f4f8fe;">
+    <div class="row" style="background-color: #f4f8fe;">
+        <div class="col-md-12" style="background-color: #f4f8fe;">
+            <div class="box box-default" style="margin-bottom: 0px; padding: 2px; background-color: #f4f8fe; border: 0 !important; box-shadow: 0 0 5px #EDEEF1;">
+
+                <div class="box-header with-border" style="background-color: #f4f8fe; padding-top: 0px;">
+                    <div class="row" style="background-color: #f4f8fe;">
+                        <div class="col-md-12">
+                            <h2>
+                                NHG Group (high tension), {{DisplayTitleDateTime}}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3 class="box-title">
+                                <button class="btn btn-default previewButton" id="btnDay" ng-click="dayClick()">DAY</button>
+                                <button class="btn btn-default previewButton" id="btnWeek" ng-click="weekClick()">WEEK</button>
+                                <button class="btn btn-default previewButton" id="btnMonth" ng-click="monthClick()">MONTH</button>
+                                <button class="btn btn-default previewButton" id="btnYear" ng-click="yearClick()">YEAR</button>
+                                <input type="input" id="customDate" ng-model="customDate" style="width:0px; visibility: visible; opacity: 0;" />
+                                <button class="btn btn-default previewButton" id="btnCustom" ng-click="customClick()">CUSTOM</button>
+                            </h3>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="box-tools pull-right" style="float: right; display: none;">
+                                <button class="btn btn-default previewButtonAvg" id="btnTotal" ng-click="totalClick()">TOTAL</button>
+                                <button class="btn btn-default previewButtonAvg" id="btnGFA" ng-click="gfaClick()">GFA</button>
+                                <button class="btn btn-default previewButtonAvg" id="btnBeds" ng-click="bedsClick()">BEDS</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-body" style="padding: 0 15px 30px;">
+                    <div class="row" style="background-color: #f4f8fe;">
+                        <div class="col-md-4 paddingAll">
+                            <div class="row dashboardBoxHeader" style="background-color: #FF0000;" ng-click="powerDashClicked()">
+                                <div class="col-md-12">
+                                    <i class="fa fa-bolt"></i>&nbsp; Total Power (kWh)
+                                </div>
+                            </div>
+                            <div class="row dashboardBoxGraphSection">
+                                <div class="col-md-6 dashboardGraph">
+                                    <div id="containerTotalPower" class=" dashboardGraphStyle verticalMiddleAlign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6  no-padding dashboardBoxRightBelow">
+                                    <div class="verticalMiddleAlign text-black">
+                                        <div class="row dashboadTopSummary">
+                                            <div class="col-md-12 no-padding" style="height: 100%;">
+                                                <div style="display: table !important; height: inherit !important;">
+                                                    <div class="dashboardPaddingTopN">
+                                                        <span class="summaryValueFontSize">
+                                                            {{numberWithCommas(powerDashboardData.PowerYesterdayValue)}}
+                                                        </span>
+                                                        <br />
+                                                        <span class="summaryUnitFontSize">
+                                                            kWh
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row dashboardPercentage">
+                                            <div class="col-md-12 no-padding">
+                                                <div class="row no-padding text-left">
+                                                    <div class="col-md-2" style="padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" ng-show="powerDashboardData.HistoricPeakPowerIncreasePercentage >= 0" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                        <i class="fa fa-arrow-circle-o-down" ng-show="powerDashboardData.HistoricPeakPowerIncreasePercentage < 0" style="font-size: 40px; color: #89C660;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-10 text-left dashboardPercentagePadding" style="">
+                                                        <span ng-show="powerDashboardData.HistoricPeakPowerIncreasePercentage >= 0" style="font-size: 20px; font-weight: bold;">{{powerDashboardData.HistoricPeakPowerIncreasePercentage}}%<br /></span>  <span ng-show="powerDashboardData.HistoricPeakPowerIncreasePercentage >= 0" style="color: #CECED1;">Increase</span>
+
+                                                        <span ng-show="powerDashboardData.HistoricPeakPowerIncreasePercentage < 0" style="font-size: 20px; font-weight: bold;">{{-(powerDashboardData.HistoricPeakPowerIncreasePercentage)}}%</span> <br /> <span ng-show="powerDashboardData.HistoricPeakPowerIncreasePercentage < 0" style="color: #CECED1;">Decrease</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row text-left no-padding dashboardLastNDay">
+                                            <div id="containerTotalPowerLastN" class="dashboardLastNStyle">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 paddingAll">
+                            <div class="row dashboardBoxHeader" style="background-color: green;" ng-click="billDashClicked()">
+                                <div class="col-md-12">
+                                    <i class="fa fa-bolt"></i>&nbsp; Total Bill (SGD)
+                                </div>
+                            </div>
+                            <div class="row dashboardBoxGraphSection">
+                                <div class="col-md-6 dashboardGraph">
+                                    <div id="containerTotalPowerBill" class=" dashboardGraphStyle verticalMiddleAlign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6  no-padding dashboardBoxRightBelow">
+                                    <div class="verticalMiddleAlign text-black">
+                                        <div class="row dashboadTopSummary">
+                                            <div class="col-md-12 no-padding" style="height: 100%;">
+                                                <div style="display: table !important; height: inherit !important;">
+                                                    <div class="dashboardPaddingTopN">
+                                                        <span class="summaryValueFontSize">
+                                                            $ {{numberWithCommas(powerDashboardData.PowerYesterdayValueBill)}}
+                                                        </span><br />
+                                                        <span class="summaryUnitFontSize">
+                                                            SGD
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row dashboardPercentage">
+                                            <div class="col-md-12 no-padding">
+                                                <div class="row">
+                                                    <div class="col-md-2" style="padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" ng-show="powerDashboardData.HistoricPeakPowerBillIncreasePercentage >= 0" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                        <i class="fa fa-arrow-circle-o-down" ng-show="powerDashboardData.HistoricPeakPowerBillIncreasePercentage < 0" style="font-size: 40px; color: #89C660;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-10 text-left dashboardPercentagePadding" style="">
+                                                        <span ng-show="powerDashboardData.HistoricPeakPowerBillIncreasePercentage >= 0" style="font-size: 20px; font-weight: bold;">{{powerDashboardData.HistoricPeakPowerBillIncreasePercentage}}%<br /></span>  <span ng-show="powerDashboardData.HistoricPeakPowerBillIncreasePercentage >= 0" style="color: #CECED1;">Increase</span>
+
+                                                        <span ng-show="powerDashboardData.HistoricPeakPowerBillIncreasePercentage < 0" style="font-size: 20px; font-weight: bold;">{{-(powerDashboardData.HistoricPeakPowerBillIncreasePercentage)}}%</span> <br /> <span ng-show="powerDashboardData.HistoricPeakPowerBillIncreasePercentage < 0" style="color: #CECED1;">Decrease</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row text-left no-padding dashboardLastNDay">
+                                            <div id="containerTotalPowerBillLastN" class="dashboardLastNStyle">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 paddingAll">
+                            <div class="row dashboardBoxHeader" style="background-color: gray;" ng-click="CO2DashClicked()">
+                                <div class="col-md-12">
+                                    <i class="fa fa-cloud"></i>&nbsp; Total Emission (CO2)
+                                </div>
+                            </div>
+                            <div class="row dashboardBoxGraphSection">
+                                <div class="col-md-6 dashboardGraph">
+                                    <div id="containerTotalCO2" class=" dashboardGraphStyle verticalMiddleAlign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6  no-padding dashboardBoxRightBelow">
+                                    <div class="verticalMiddleAlign text-black">
+                                        <div class="row dashboadTopSummary">
+                                            <div class="col-md-12 no-padding" style="height: 100%;">
+                                                <div style="display: table !important; height: inherit !important;">
+                                                    <div class="dashboardPaddingTopN">
+                                                        <span class="summaryValueFontSize">
+                                                            669,194
+                                                        </span>
+                                                        <br />
+                                                        <span class="summaryUnitFontSize">
+                                                            CO2
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row dashboardPercentage">
+                                            <div class="col-md-12 no-padding">
+                                                <div class="row">
+                                                    <div class="col-md-2" style="padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-10 text-left dashboardPercentagePadding" style="">
+                                                        <span style="font-size: 20px; font-weight: bold;">25.3%</span> <br /> <span style="color: #CECED1;">Increase</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row text-left no-padding dashboardLastNDay">
+                                            <div id="containerTotalCO2LastN" class="dashboardLastNStyle">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- below three box hidden from dashboard -->
+                    <div class="row" style="background-color: #f4f8fe; padding-top: 0px !important; display: none;">
+                        <div class="col-md-4 paddingLeftRightBottom">
+                            <div class="row dashboardBoxHeader" style="background-color: #EE7802;">
+                                <div class="col-md-12">
+                                    <i class="fa fa-tint"></i>&nbsp; Total Water
+                                </div>
+                            </div>
+                            <div class="row dashboardBoxGraphSection">
+                                <div class="col-md-6 dashboardGraph">
+                                    <div id="containerTotalWater" class=" dashboardGraphStyle verticalMiddleAlign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6  no-padding dashboardBoxRightBelow">
+                                    <div class="verticalMiddleAlign text-black">
+                                        <div class="row" style="height: 50%;">
+                                            <div class="col-md-12 no-padding" style="height: 100%;">
+                                                <div style="display: table !important; height: inherit !important;">
+                                                    <div class="verticalBottomAlign">
+                                                        <span class="summaryValueFontSize">
+                                                            559,194
+                                                        </span>
+                                                        <br />
+                                                        <span class="summaryUnitFontSize">
+                                                            Cu3
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="height: 50%; padding-top: 10px;">
+                                            <div class="col-md-6 no-padding">
+                                                <div class="row">
+                                                    <div class="col-md-2" style="padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-9 text-center" style="">
+                                                        <span style="font-size: 20px; font-weight: bold;">2.11%</span> <br /> <span style="color: #CECED1;">Increase</span>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-left">
+                                                <div id="containerTotalWaterLastN" style="width: 100%; height: 65px; ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 paddingLeftRightBottom">
+                            <div class="row dashboardBoxHeader" style="background-color: #EE7802;">
+                                <div class="col-md-12">
+                                    <i class="fa fa-tint"></i>&nbsp; Total Water$
+                                </div>
+                            </div>
+                            <div class="row dashboardBoxGraphSection">
+                                <div class="col-md-6 dashboardGraph">
+                                    <div id="containerTotalWaterBill" class=" dashboardGraphStyle verticalMiddleAlign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6  no-padding dashboardBoxRightBelow">
+                                    <div class="verticalMiddleAlign text-black">
+                                        <div class="row" style="height: 50%;">
+                                            <div class="col-md-12 no-padding" style="height: 100%;">
+                                                <div style="display: table !important; height: inherit !important;">
+                                                    <div class="verticalBottomAlign">
+                                                        <span class="summaryValueFontSize">
+                                                            $ 57,596
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="height: 50%; padding-top: 10px;">
+                                            <div class="col-md-6 no-padding">
+                                                <div class="row">
+                                                    <div class="col-md-2" style="padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-9 text-center" style="">
+                                                        <span style="font-size: 20px; font-weight: bold;">2.1%</span> <br /> <span style="color: #CECED1;">Increase</span>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-left">
+                                                <div id="containerTotalWaterBillLastN" style="width: 100%; height: 65px; ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 paddingLeftRightBottom">
+                            <div class="row dashboardBoxHeader" style="background-color: #25BADA;">
+                                <div class="col-md-12">
+                                    <i class="fa fa-cloud"></i>&nbsp; Total CO2$
+                                </div>
+                            </div>
+                            <div class="row dashboardBoxGraphSection">
+                                <div class="col-md-6 dashboardGraph">
+                                    <div id="containerTotalCO2Bill" class=" dashboardGraphStyle verticalMiddleAlign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6  no-padding dashboardBoxRightBelow">
+                                    <div class="verticalMiddleAlign text-black">
+                                        <div class="row" style="height: 50%;">
+                                            <div class="col-md-12 no-padding" style="height: 100%;">
+                                                <div style="display: table !important; height: inherit !important;">
+                                                    <div class="verticalBottomAlign">
+                                                        <span class="summaryValueFontSize">
+                                                            $ 68,926
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="height: 50%; padding-top: 10px;">
+                                            <div class="col-md-6 no-padding">
+                                                <div class="row">
+                                                    <div class="col-md-2" style="padding-right: 0 !important;">
+                                                        <i class="fa fa-arrow-circle-o-up" style="font-size: 40px; color: red;" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-9 text-center" style="">
+                                                        <span style="font-size: 20px; font-weight: bold;">5.3%</span> <br /> <span style="color: #CECED1;">Increase</span>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-left">
+                                                <div id="containerTotalCO2BillLastN" style="width: 100%; height: 65px; ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

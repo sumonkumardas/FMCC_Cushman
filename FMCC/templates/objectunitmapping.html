@@ -1,0 +1,185 @@
+﻿<style>
+    .box.box-default {
+        border-top-color: #d2d6de;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+    }
+    
+    .col-md-12.no-padding {
+        margin: 0 0 30px;
+    }
+
+
+    .btn.btn-flat.btn-primary {
+        min-width: 100px;
+    }
+</style>
+
+<section class="content">
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-user-secret"></i>
+                    <h3 class="box-title"> Overall Power Consumption Unit </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 10px;">
+                    <div class="col-md-12">
+                        <form name="powerForm" novalidate="novalidate" class="clearfix" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;">
+                            <div class="row">
+                                <div class="col-md-7 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label">
+                                            Unit Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="pUnitId" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <button type="submit" ng-disabled="powerForm.$invalid" style="min-width:100px;" class="btn btn-sm btn-primary" ng-click="submitOverallPowerConsumptionUnit()">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:20px">
+                                <table id="ptable" class="table table-hover table-condensed table-bordered table-responsive" style="margin-top:65px;">
+                                    <tbody>
+                                        <tr>
+                                            <th> ObjectDataField </th>
+                                            <th> Unit Name </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom: 0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-user-secret"></i>
+                    <h3 class="box-title"> Overall Water Consumption Unit </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding: 30px 15px 30px;">
+                    <div class="col-md-12">
+                        <form name="waterForm" novalidate="novalidate" style="border-bottom: 1px solid #f4f4f4; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label" style="padding-top: 5px;">
+                                            Unit Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="wUnitId" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <button type="submit" ng-disabled="waterForm.$invalid" style="min-width: 100px;" class="btn btn-sm btn-primary" ng-click="submitOverallWaterConsumptionUnit()">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top: 20px">
+                                <table id="wtable" class="table table-hover table-condensed table-bordered table-responsive" style="margin-top: 65px;">
+                                    <tbody>
+                                    <tr>
+                                        <th> ObjectDataField </th>
+                                        <th> Unit Name </th>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-user-secret"></i>
+                    <h3 class="box-title"> Temperature Unit </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="col-md-12">
+                        <form name="temperatureForm" novalidate="novalidate" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;">
+                            <div class="row">
+                                <div class="col-md-7 no-padding">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 control-label" style="padding-top: 5px;">
+                                            Unit Name
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <select id="tUnitId" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <button type="submit" ng-disabled="temperatureForm.$invalid" style="min-width:100px;" class="btn btn-sm btn-primary" ng-click="submitTemperatureUnit()">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:20px">
+                                <table id="ttable" class="table table-hover table-condensed table-bordered table-responsive" style="margin-top:65px;">
+                                    <tbody>
+                                        <tr>
+                                            <th> ObjectDataField </th>
+                                            <th> Unit Name </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

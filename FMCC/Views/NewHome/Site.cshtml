@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html ng-controller="siteCtrl">
+<head>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>F</b>MCC</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>FMCC</b> Portal</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">Welcome Admin</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <p>
+                                        Welcome, Admin
+                                        <small>Member since Jan. 2016</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    @*<li class="active ">
+                        <a href="index.html">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            <span class="pull-right-container">
+
+                            </span>
+                        </a>
+                    </li>*@
+                    @*<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Individual Blocks </span>
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right">4</span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="chartjs.html"><i class="fa fa-circle-o"></i> Block 111</a></li>
+                            <li><a href="block211.html"><i class="fa fa-circle-o"></i> Block 211</a></li>
+                            <li><a href="block111.html"><i class="fa fa-circle-o"></i> Block 311</a></li>
+                            <li><a href="block111.html"><i class="fa fa-circle-o"></i> Block 411</a></li>
+                        </ul>
+                    </li>*@
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-sitemap"></i> Site One</a></li>
+                            <li><a href="#"><i class="fa fa-sitemap"></i> Site Two</a></li>
+                            <li><a href="#"><i class="fa fa-sitemap"></i> Site Three</a></li>
+                        </ul>
+                    </li>
+                    @*<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Reports</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Summary</a></li>
+                        </ul>
+                    </li>*@
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>Admin</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Settings</a></li>
+                        </ul>
+                    </li>
+
+                    @*<li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>*@
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header" style="padding:0">
+                <div class="row" style="background: #fff;padding: 10px;color: #444;border-bottom: 1px solid #d2d6de;">
+                    <div class="col-xs-3">
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label for="site-select" style="float:left;margin-top:5px">Site</label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <select id="site-select" class="form-control nopadding" style="float:left">
+                                        <option>Sample</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{msg}}
+                    <div class="col-xs-9">
+                        <button class="btn btn-primary btn-flat" style="float:right">Map View</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <!-- Info boxes -->
+                @*<div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-aqua"><i class="fa fa-bank (alias)"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Water Usage</span>
+                                <span class="info-box-number">1200<small> m3</small></span>
+                                <a href="water.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+
+                        <div class="info-box">
+                            <span class="info-box-icon bg-red"><i class="fa  fa-industry"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Power Ugase</span>
+                                <span class="info-box-number">41,410</span>
+                                <a href="power.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <!-- fix for small devices only -->
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-green"><i class="fa fa-building"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Cooling Load</span>
+                                <span class="info-box-number">760</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-yellow"><i class="fa fa-comments"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Alarms</span>
+                                <span class="info-box-number">20</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>*@
+                <!-- /.row -->
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+
+                        <div class="box box-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-aqua-active">
+                                <h3 class="widget-user-username">Block 111</h3>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle" src="~/admin/2.3.6/dist/img/building.jpg" alt="Block 111">
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">150 m3</h5>
+                                            <span class="description-text">WATER</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">150 m3</h5>
+                                            <span class="description-text">WATER</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="description-block">
+                                            <h5 class="description-header">59 kW</h5>
+                                            <span class="description-text">POWER</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+
+                                    <div style="text-align:right;padding-right:20px">
+                                        <a href="block111.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="box box-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-aqua-active">
+                                <h3 class="widget-user-username">Block 211</h3>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle" src="~/admin/2.3.6/dist/img/building.jpg" alt="Block 111">
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">250 m3</h5>
+                                            <span class="description-text">WATER</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-6">
+                                        <div class="description-block">
+                                            <h5 class="description-header">34 kW</h5>
+                                            <span class="description-text">POWER</span>
+                                        </div>
+                                        <a href="block111.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                        <!-- /.description-block -->
+                                    </div>
+
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="box box-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-aqua-active">
+                                <h3 class="widget-user-username">Block 311</h3>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle" src="../dist/img/building.jpg" alt="Block 111">
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">350 m3</h5>
+                                            <span class="description-text">WATER</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-6">
+                                        <div class="description-block">
+                                            <h5 class="description-header">54 kW</h5>
+                                            <span class="description-text">POWER</span>
+                                        </div>
+                                        <a href="block111.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                        <!-- /.description-block -->
+                                    </div>
+
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="box box-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-aqua-active">
+                                <h3 class="widget-user-username">Block 411</h3>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle" src="../dist/img/building.jpg" alt="Block 111">
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">250 m3</h5>
+                                            <span class="description-text">WATER</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-6">
+                                        <div class="description-block">
+                                            <h5 class="description-header">69 kW</h5>
+                                            <span class="description-text">POWER</span>
+                                        </div>
+                                        <a href="block111.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                        <!-- /.description-block -->
+                                    </div>
+
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <!-- /.row -->
+
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 0.1
+            </div>
+            All rights
+            reserved.
+        </footer>
+
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#site-select").select2({ width: '100px' });
+            $("#alert-type-select").select2({ width: '100px' });
+            $("#block-type-select").select2({ width: '100px' });
+        });
+    </script>
+</body>
+</html>

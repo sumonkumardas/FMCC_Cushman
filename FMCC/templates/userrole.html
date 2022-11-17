@@ -1,0 +1,70 @@
+﻿<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-user"></i>
+                    <h3 class="box-title">User Roles</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 30px;">
+                    <div class="row">
+                        <form novalidate="novalidate" name="userRoleForm" class="clearfix" style="border-bottom:1px solid #f4f4f4;">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            User
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="userrole-user">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 no-padding control-label" style="padding-top: 5px;">
+                                            Role
+                                        </div>
+                                        <div class="col-sm-12 no-padding">
+                                            <select id="userrole-role">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group clearfix">
+                                        <div class="text-right">
+                                            <button ng-show="userRole.Id > 0" ng-disabled="userRoleForm.$invalid" ng-click="unSetUserRole(userForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Delete</button>
+                                            <button ng-show="userRole.Id > 0" ng-click="cancelUserRole()" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Cancel</button>
+                                            <button ng-show="userRole.Id == 0" ng-disabled="userRoleForm.$invalid" ng-click="setUserRole(userForm)" style="min-width:100px;" type="Submit" class="btn btn-sm btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:45px;padding-top:15px;">
+                                <table id="userroles" class="table table-hover table-condensed table-bordered"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,234 @@
+﻿<style>
+    .select2-container .select2-selection--single {
+        height: 32px;
+        padding-left: 0px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 26px;
+        position: absolute;
+        right: 5px;
+        top: 4px;
+        width: 20px;
+    }
+</style>
+<section class="content">
+
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title">External Alarm Forward </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 40px;">
+                    <div class="row">
+                        <form name="alarmForwardForm" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;" class="clearfix">
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="form-group clearfix">
+                                        <div class="control-label">
+                                            Itqf
+                                        </div>
+                                        <div class="">
+                                            <input id="inputItqf" type="text" class="form-control input-sm" placeholder="Please enter Itqf "/>
+                                            <!--<select id="inputItqf" class="status" style="width: 100%;">
+                                                <option></option>
+                                            </select>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="form-group clearfix">
+                                        <div class="control-label">
+                                            Block
+                                        </div>
+                                        <div class="">
+                                            <select id="alertRuleSetupBlock" class="block form-control input-group" data-placeholder="Please select a block">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input ng-disabled="alarmForwardForm.$invalid" ng-click="DeleteBuidingAlarmData()" style="min-width: 100px; margin-top: 20px;" type="Submit" value="Delete" class="btn btn-sm btn-primary pull-right">
+                                    <input id="alarmForwardSave" ng-disabled="alarmForwardForm.$invalid" ng-click="SaveBuidingAlarmData()" style="min-width: 100px; margin-top: 20px; margin-right: 3px;" type="Submit" value="Save" class="btn btn-sm btn-primary pull-right">
+
+                                </div>
+                            </div>
+                                    
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:25px;">
+                                <table id="alarm-status" class="table table-hover table-condensed table-bordered">
+                                    <!--<thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Itqf </th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>-->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title">ITQF Setting</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 40px;">
+                    <div class="row">
+                        <form name="itqfForm" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;" class="clearfix">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group clearfix">
+                                        <div class="control-label">
+                                            Itqf
+                                        </div>
+                                        <div class="">
+                                            <input id="inputItqfName" type="text" class="form-control input-sm" placeholder="Please enter Itqf " />
+                                            <!--<select id="inputItqf" class="status" style="width: 100%;">
+                                                <option></option>
+                                            </select>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group clearfix">
+                                        <div class="control-label">
+                                            Replacement Name
+                                        </div>
+                                        <div class="">
+                                            <input id="inputReplacementItqfName" type="text" class="form-control input-sm" placeholder="Please enter Itqf Replacement" />
+                                            <!--<select id="inputItqf" class="status" style="width: 100%;">
+                    <option></option>
+                </select>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input ng-disabled="alarmForwardForm.$invalid" ng-click="DeleteItqfNameReplacement()" style="min-width:100px;margin-top:20px; margin-right: 20px;" type="Submit" value="Delete" class="btn btn-sm btn-primary pull-right">
+
+                                     <input id="itqfReplaceSave" ng-disabled="alarmForwardForm.$invalid" ng-click="SaveItqfNameReplacement()" style="min-width:100px;margin-top:20px; margin-right: 3px;" type="Submit" value="Save" class="btn btn-sm btn-primary pull-right">
+                                   
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:25px;">
+                                <table id="itqf-replacement" class="table table-hover table-condensed table-bordered">
+                                    <!--<thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Itqf </th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>-->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default" style="margin-bottom:0px;">
+                <div class="box-header with-border">
+                    <i class="fa fa-cog"></i>
+                    <h3 class="box-title">External Alarm Suppress </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="padding:30px 15px 40px;">
+                    <div class="row">
+                        <form name="alarmForwardForm" style="border-bottom:1px solid #f4f4f4;padding-bottom:20px;" class="clearfix">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group clearfix">
+                                        <div class="control-label">
+                                            Itqf
+                                        </div>
+                                        <div class="">
+                                            <select id="inputItqf2" class="status" style="width:100%;">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="">
+                                            From Date(Suppress)
+                                        </div>
+                                        <div class="form-group">
+                                            <input type='text' class="form-control" placeholder="From Date" id='fromdate' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="">
+                                            To Date(Suppress)
+                                        </div>
+                                        <div class="form-group">
+                                            <input type='text' class="form-control" placeholder="To Date" id='todate' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                    <input  ng-disabled="alarmForwardForm.$invalid" ng-click="SaveBuidingAlarmSuppressData()" style="min-width:100px;margin-top:-2px;" type="Submit" value="Save" class="btn btn-sm btn-primary">
+                                    <input ng-disabled="alarmForwardForm.$invalid" ng-click="DeleteBuidingAlarmSuppressData()" style="min-width:100px;margin-top:-2px;" type="Submit" value="Delete Suppressed" class="btn btn-sm btn-primary">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 table-responsive" style="margin-top:65px;">
+                                <table id="alarm-suppress" class="table table-hover table-condensed table-bordered">
+                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
